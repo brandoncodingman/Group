@@ -1,33 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
   <head>
     <meta charset="UTF-8" />
     <title>Move Character on Page</title>
     <link rel="stylesheet" href="./css/app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!-- Intro Images -->
-    <img
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgFX8zXXcNdccAIHVtA_C51bImLwJYIoSGkg&s"
-      id="top-image"
-      class="intro-image"
-      alt="Top Cover"
-    />
-    <img
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgFX8zXXcNdccAIHVtA_C51bImLwJYIoSGkg&s"
-      id="bottom-image"
-      class="intro-image"
-      alt="Bottom Cover"
-    />
 
+  <video id="video" style="display: none;" src="./img/onload.mp4"></video>
     <!-- Character -->
-    <img id="character" src="./img/kirbygon.png" alt="Character" />
+    <img id="character" src="./img/earth-no-bg.png" alt="Character" />
 
     <!-- Page layout -->
     <header>
-      <h1>My Fake Website</h1>
-      <p>Just a simple layout with a moving character!</p>
+      <h1>Fluffy Planet</h1>
     </header>
 
     <nav>

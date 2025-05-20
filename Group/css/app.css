@@ -3,7 +3,9 @@
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        font-family: Arial, sans-serif;
+         font-family: "Bangers", system-ui;
+  font-weight: 400;
+  font-style: normal;
       }
 
       body {
@@ -12,6 +14,13 @@
         overflow: hidden;
         position: relative;
       }
+
+      .bangers-regular {
+  font-family: "Bangers", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
       .fancy-box {
         border-radius: 73% 27% 61% 39% / 12% 40% 60% 88%;
@@ -27,12 +36,15 @@
       }
 
       header {
-        background-image: url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW45cWpxd3RtYzZodWt6aGN3bHBrODNmdHZiaG9nd3MydmRwNWNvOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zaXhe5yFYWReByyTOk/giphy.gif");
-        background-size: cover;
-        background-position: center;
-        color: white;
+       background-color: rgb(189, 188, 188);
+        color: rgb(255, 255, 255);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         padding: 20px;
         text-align: center;
+        font-weight: 400;
+  font-style: normal;
+  /* font spacing */
+  letter-spacing: 0.2em;
       }
 
       nav {
@@ -42,10 +54,12 @@
       }
 
       nav a {
-        color: white;
+        font-family: "Bangers", system-ui;
+        color: rgb(255, 255, 255);
         margin: 0 15px;
         text-decoration: none;
-        font-weight: bold;
+        font-weight: 400;
+  font-style: normal;
       }
 
       nav a:hover {
@@ -53,17 +67,19 @@
       }
 
       .container {
+
         display: flex;
         padding: 20px;
         height: calc(100vh - 160px);
         overflow: auto;
-        background-color: rgba(74, 75, 75, 0.2);
+         background-image: url("https://www.shutterstock.com/image-illustration/street-view-urban-japan-manga-260nw-2016866798.jpg");
+        background-repeat: repeat;
+        background-size: cover;
       }
 
       .main-content {
         flex: 3;
         padding: 20px;
-        background-color: rgb(6, 255, 234, 0.2);
         margin-right: 20px;
         border: 1px solid #807d7d;
       }
