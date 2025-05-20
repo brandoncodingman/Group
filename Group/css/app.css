@@ -1,0 +1,131 @@
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f9f9f9;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .fancy-box {
+        border-radius: 73% 27% 61% 39% / 12% 40% 60% 88%;
+        transition: border-radius 0.5s ease-in-out,
+          background-color 0.5s ease-in-out;
+        border: 2px solid #888;
+        padding: 20px;
+        background-color: white;
+      }
+
+      .fancy-box:hover {
+        border-radius: 40% 60% 30% 70% / 60% 20% 80% 40%;
+      }
+
+      header {
+        background-image: url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW45cWpxd3RtYzZodWt6aGN3bHBrODNmdHZiaG9nd3MydmRwNWNvOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zaXhe5yFYWReByyTOk/giphy.gif");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      nav {
+        background-color: #444;
+        padding: 10px;
+        text-align: center;
+      }
+
+      nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        display: flex;
+        padding: 20px;
+        height: calc(100vh - 160px);
+        overflow: auto;
+        background-color: rgba(74, 75, 75, 0.2);
+      }
+
+      .main-content {
+        flex: 3;
+        padding: 20px;
+        background-color: rgb(6, 255, 234, 0.2);
+        margin-right: 20px;
+        border: 1px solid #807d7d;
+      }
+
+      .sidebar {
+        flex: 1;
+        padding: 20px;
+        background-color: #eee;
+        border: 1px solid #ccc;
+      }
+
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+
+      #character {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        width: 100px;
+        height: auto;
+        transition: top 0.05s, left 0.05s;
+        z-index: 1000;
+        pointer-events: none;
+      }
+
+      /* Entrance image animation */
+      .intro-image {
+        position: fixed;
+        width: 100%;
+        height: 25%; /* Reduce the height to 25% */
+        object-fit: cover;
+        z-index: 2000;
+        transition: transform 1.5s ease-in-out, opacity 1s ease;
+        opacity: 0;
+      }
+
+      #top-image {
+        top: 0;
+        transform: translateY(-100%); /* Start off-screen */
+      }
+
+      #bottom-image {
+        bottom: 0;
+        transform: translateY(100%); /* Start off-screen */
+      }
+
+      .slide-in {
+        transform: translateY(0); /* Move images to their final position */
+        opacity: 1; /* Make images visible */
+      }
+
+      /* Optional: fade out cover images after animation */
+      .hide {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 1s ease 1.5s;
+      }
+    
