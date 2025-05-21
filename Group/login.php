@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="./css/login.css">
+    <title>ログインページ</title>
 </head>
-<body>
-    <h1>Sign in or Register</h1>
-       <!-- form with username and password and submit or register with email, username, password if not registered -->
-    <form id="form" action="" method="post">
-        <input type="text" name="username" placeholder="Username"><br>
-        <input type="password" name="password" placeholder="Password"><br>
-        <input type="submit" name="submit" value="Submit"><br>
-        <input type="submit" name="register" value="Register">
-    </form>
 
-    <script src="./js/login.js"></script>
+<body>
+    <div class="login">
+        <p>ユーザーIDとパスワードを入力してください</p>
+        <div class="form">
+            <form action="" method="POST">
+                <div class="input">
+                    ユーザーID：<input type="text" name="username"><br>
+                    パスワード：<input type="text" name="password"><br>
+                </div>
+                <div class="submit"><input type="submit" value="ログイン" ></div>
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>
