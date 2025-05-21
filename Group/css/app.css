@@ -1,4 +1,5 @@
 
+      
       * {
         box-sizing: border-box;
         margin: 0;
@@ -9,7 +10,6 @@
       }
 
       body {
-        background-color: #f9f9f9;
         height: 100vh;
         overflow: hidden;
         position: relative;
@@ -36,34 +36,14 @@
       }
 
       header {
-       background-color: rgb(189, 188, 188);
+       background-color: rgb(168, 168, 168);
         color: rgb(255, 255, 255);
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         padding: 20px;
         text-align: center;
         font-weight: 400;
   font-style: normal;
-  /* font spacing */
   letter-spacing: 0.2em;
-      }
-
-      nav {
-        background-color: #444;
-        padding: 10px;
-        text-align: center;
-      }
-
-      nav a {
-        font-family: "Bangers", system-ui;
-        color: rgb(255, 255, 255);
-        margin: 0 15px;
-        text-decoration: none;
-        font-weight: 400;
-  font-style: normal;
-      }
-
-      nav a:hover {
-        text-decoration: underline;
       }
 
       .container {
@@ -145,3 +125,76 @@
         transition: opacity 1s ease 1.5s;
       }
     
+
+    /* hamburger menu */
+
+    /* nav, ul, li, a flex direction row */
+#nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #333;
+}
+
+#nav ul li {
+  padding: 15px 25px;
+}
+
+#nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Hamburger styles */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  #nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #333;
+  }
+
+  #nav ul li {
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+  }
+
+  .hamburger {
+    display: flex;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+  }
+
+  #nav.active ul {
+    display: flex;
+  }
+}
+
+/* Add transition for smooth animation */
+#nav ul {
+  transition: transform 0.3s ease;
+}
+
+#nav.active ul {
+  transform: translateX(0);
+}
