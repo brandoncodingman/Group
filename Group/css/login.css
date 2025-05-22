@@ -1,0 +1,84 @@
+@charset 'utf-8';
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(../img/open_door.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+
+.login {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    width: 50%;
+    height: 38%;
+    background-color: rgba(240, 248, 255, 0.65);
+}
+
+form {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.input {
+    padding-left: 60px;
+}
+
+
+.input input[name="username"] {
+    width: 300px;
+}
+
+.input input[name="password"] {
+    width: 400px;
+}
+
+.input span:nth-of-type(2) {
+    display: inline-block;
+    /* または block */
+    padding: 0px 0 30px;
+}
+
+h1 {
+    font-size: 23px;
+    padding: 40px 0 10px;
+    text-align: center;
+    font-family: "Rampart One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+p{
+    text-align: center;
+    padding: 0 0 40px ;
+    font-size: 14px;
+}
+
+    .submit {
+        text-align: center;
+    }
+
+    input[type="submit"] {
+        border-radius: 37% 80% 100% 52% / 33% 72% 64% 54%;
+        padding: 2% 5%;
+        border: 1px solid #f0f8ff;
+        background-color: #f0f8ff;
+        box-shadow: 0px 0px 5px 10px #f0f8ff;
+        font-size: 18px;
+    }
+
+        input[type="submit"]:hover {
+        border-radius: 75% 40% 65% 75% / 78% 42% 40% 58%;
+        border: 1px solid #f0ffff;
+        background-color: #f0ffff;
+        box-shadow: 0px 0px 5px 10px #f0ffff;
+    }
