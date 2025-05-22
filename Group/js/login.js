@@ -40,3 +40,13 @@ fancyBoxes.forEach((box) => {
     box.style.backgroundColor = randomColor;
   });
 });
+
+//register music
+function play(){
+// audio
+
+}
+
+
+const heaven 
+heaven.addEventListener('click', play());
