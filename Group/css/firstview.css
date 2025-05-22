@@ -1,0 +1,26 @@
+ /* Set full-screen width and height for the div */
+        #media-container {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-bottom: solid black 15px;
+            border-left: solid black 15px;
+            border-right: solid black 15px;
+        }
+
+        /* Video takes up full width and height of the screen */
+        #media-container video {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        /* Image styling */
+        #media-container img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: none;
+        }

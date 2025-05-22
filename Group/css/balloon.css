@@ -1,0 +1,46 @@
+/* Balloon Container */
+.balloon-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+    background-image: url('https://i.imgur.com/uTp5Ljzg.jpg');
+}
+
+.balloon {
+  width: 350px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 10px solid #000000; 
+  border-radius: 65% 46% 41% 29% / 54% 58% 40% 43%;
+  transition: border-radius 0.9s ease, background-color 0.9s ease;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.balloon img {
+  width: 100%;
+  height: auto;
+  max-width: 120px;
+}
+
+.balloon a {
+  text-decoration: none;
+}
+
+figcaption {
+  font-size: 39px;
+  text-align: center;
+  margin-top: 10px;
+  color: #333;
+    font-family: "Bangers", system-ui;
+  font-weight: bold;
+  font-style: normal;
+  letter-spacing: 0.2em;
+}
