@@ -1,19 +1,18 @@
 
-      
-      * {
+   * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
          font-family: "Bangers", system-ui;
-  font-weight: 400;
-  font-style: normal;
       }
 
-      body {
-        height: 100vh;
-        overflow: hidden;
-        position: relative;
-      }
+body {
+  overflow-y: auto; 
+  background-image: url('https://i.pinimg.com/474x/03/3d/01/033d01bb81b5c8d30958e7b10ba1a22b.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
+}
 
       .bangers-regular {
   font-family: "Bangers", system-ui;
@@ -21,47 +20,14 @@
   font-style: normal;
 }
 
-
-      .fancy-box {
-        border-radius: 73% 27% 61% 39% / 12% 40% 60% 88%;
-        transition: border-radius 0.5s ease-in-out,
-          background-color 0.5s ease-in-out;
-        border: 2px solid #888;
-        padding: 20px;
-        background-color: white;
-      }
-
-      .fancy-box:hover {
-        border-radius: 40% 60% 30% 70% / 60% 20% 80% 40%;
-      }
-
       header {
        background-color: rgb(168, 168, 168);
         color: rgb(255, 255, 255);
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         padding: 20px;
         text-align: center;
-        font-weight: 400;
-  font-style: normal;
   letter-spacing: 0.2em;
-      }
-
-      .container {
-
-        display: flex;
-        padding: 20px;
-        height: calc(100vh - 160px);
-        overflow: auto;
-         background-image: url("https://www.shutterstock.com/image-illustration/street-view-urban-japan-manga-260nw-2016866798.jpg");
-        background-repeat: repeat;
-        background-size: cover;
-      }
-
-      .main-content {
-        flex: 3;
-        padding: 20px;
-        margin-right: 20px;
-        border: 1px solid #807d7d;
+  font-size: 50px;
       }
 
       .sidebar {
@@ -76,7 +42,7 @@
         color: white;
         text-align: center;
         padding: 15px;
-        position: absolute;
+        position: relative;
         bottom: 0;
         width: 100%;
       }
@@ -127,8 +93,6 @@
     
 
     /* hamburger menu */
-
-    /* nav, ul, li, a flex direction row */
 #nav ul {
   list-style: none;
   margin: 0;
@@ -139,13 +103,21 @@
 }
 
 #nav ul li {
-  padding: 15px 25px;
+  padding: 25px 25px;
+  transition: background-color 0.8s ease, border 0.8s ease;
+}
+
+#nav ul li:hover {
+  background-color: #555;
+  border: solid white 5px;
+  border-radius: 65% 46% 41% 29% / 54% 58% 40% 43% ;
 }
 
 #nav ul li a {
   color: white;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 40px;
+  letter-spacing: 0.15em;
 }
 
 /* Hamburger styles */
