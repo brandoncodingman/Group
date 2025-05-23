@@ -34,6 +34,14 @@ document.addEventListener("keydown", function (e) {
 updateCharacterImage('./img/earth-nobg.png');  // Replace with the new image URL
 
 
+
+//index table
+function toggleDetails(row) {
+    const nextRow = row.nextElementSibling;
+    if (nextRow && nextRow.classList.contains('details')) {
+      nextRow.style.display = nextRow.style.display === 'table-row' ? 'none' : 'table-row';
+    }
+  }
 //         // Apply the slide-in effect to both images after a slight delay
 //         setTimeout(() => {
 //           topImage.classList.add("slide-in");

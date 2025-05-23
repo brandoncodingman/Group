@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/app.css" />
     <link rel="stylesheet" href="./css/balloon.css" />
     <link rel="stylesheet" href="./css/firstview.css" />
+    <link rel="stylesheet" href="./css/indextable.css" />
   </head>
   <body>
     <!-- <video id="video" style="display: none;" src="./img/onload.mp4"></video> -->
@@ -74,9 +75,64 @@
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS70RoBIbzwsQplSwSCV9gGKUW91-SQklpZxA&s"
             alt="character"
           />
+
           <figcaption>Character</figcaption></a
         >
       </div>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr onclick="toggleDetails(this)">
+            <td>Diary Page</td>
+            <td>Track your daily progress and story events.</td>
+          </tr>
+          <tr class="details">
+            <td colspan="2">
+              The diary logs your daily activities, completed quests, and
+              unlockable lore.
+            </td>
+          </tr>
+          <tr onclick="toggleDetails(this)">
+            <td>Character Page</td>
+            <td>View and manage unlocked characters.</td>
+          </tr>
+          <tr class="details">
+            <td colspan="2">
+              You can level up, equip items, and view character bios here.
+            </td>
+          </tr>
+          <tr onclick="toggleDetails(this)">
+            <td>Shop Page</td>
+            <td>Buy characters and items using Stardust points.</td>
+          </tr>
+          <tr class="details">
+            <td colspan="2">
+              Access various items, character skins, and exclusive bundles using
+              Stardust.
+            </td>
+          </tr>
+          <tr onclick="toggleDetails(this)">
+            <td>Stardust Points</td>
+            <td>
+              Earned through gameplay achievements and daily login rewards.
+            </td>
+          </tr>
+          <tr class="details">
+            <td colspan="2">
+              You can earn Stardust by completing quests, defeating bosses, and
+              participating in events.
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <footer>&copy; 2025 Fluffy Planet</footer>
