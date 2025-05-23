@@ -69,6 +69,19 @@
         <!-- Characters here from js -->
       </div>
     </div>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Character</th>
+        <th>Facts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- JS facts here -->
+    </tbody>
+  </table>
+</div>
 
     <footer>&copy; 2025 Fluffy Planet</footer>
   </body>
