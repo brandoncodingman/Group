@@ -16,8 +16,8 @@
         const originalColor = getRandomColor();
         balloon.style.backgroundColor = originalColor;
         balloon.style.border= 'black solid 10px';
-        balloon.style.fontSize= '30px';
-         balloon.style.letterSpacing= '0.2rem';
+        // balloon.style.fontSize= '30px';
+         
 
         // Set random complex border-radius
         const originalBorderRadius = getRandomBorderRadius();
@@ -48,7 +48,12 @@
         });
 
         // Add content
-        balloon.innerHTML = `<strong>${date}</strong><br><em>${title}</em><p>${content}</p>`;
+        balloon.innerHTML = `
+  <div class="balloon-date"><strong>${date}</strong></div>
+  <div class="balloon-title"><em>${title}</em></div>
+  <p class="balloon-text">${content}</p>
+`;
+
 
         // Add to container
         container.appendChild(balloon);
