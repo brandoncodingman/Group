@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="./css/login_register.css">
 </head>
 <body>
-<img src="./img/login_register.png" alt="">
+<img class="twodoor"  src="./img/login_register.png" alt="">
+<img class="onedoor" src="./img/one_door.png" alt="">
     <div id="buttons">
         <input id="login" type="submit" value="ログイン" >
         <input id="register" type="submit" value="新規登録">

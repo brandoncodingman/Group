@@ -17,25 +17,86 @@ body {
     overflow: hidden;
 }
 
-/* #buttons{
-   width: 100%;
-   height: 100%;
-} */
+.onedoor {
+    display: none;
+}
 
-img{
+img {
     width: 100%;
     height: 100%;
 }
 
 #register {
-     position: absolute;
-    right: 16%;
-    top: 35%;
+    position: absolute;
+    right: 12.5%;
+    top: 31%;
+    /* padding: 1% 2%; */
+    border-radius: 75% 40% 65% 75% / 78% 42% 40% 58%;
+    border: 1px solid #f0f8ff;
+    background-color: #f0f8ff;
+    box-shadow: 0px 0px 5px 10px #f0f8ff;
+    font-size: 20px;
+    display: block;
+    width: 150px;
+    height: 40px;
 }
 
-#login{
-     position: absolute;
-    left: 16%;
-    top: 35%;
+#login {
+    position: absolute;
+    left: 12.5%;
+    top: 31%;
+    border-radius: 37% 80% 100% 52% / 33% 72% 64% 54%;
+    /* padding: 1% 2%; */
+    border: 1px solid #f0f8ff;
+    background-color: #f0f8ff;
+    box-shadow: 0px 0px 5px 10px #f0f8ff;
+    font-size: 20px;
+    display: block;
+    width: 150px;
+    height: 40px;
 }
 
+#login:hover {
+    border-radius: 75% 40% 65% 75% / 78% 42% 40% 58%;
+    border: 1px solid #d3eeee;
+    background-color: #d3eeee;
+    box-shadow: 0px 0px 5px 10px #d3eeee;
+}
+
+#register:hover {
+    border-radius: 37% 80% 100% 52% / 33% 72% 64% 54%;
+    border: 1px solid #d3eeee;
+    background-color: #d3eeee;
+    box-shadow: 0px 0px 5px 10px #d3eeee;
+}
+
+
+@media screen and (max-width: 880px) {
+    .twodoor {
+        display: none;
+    }
+
+    .onedoor {
+        display: block;
+    }
+
+    #buttons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #register {
+        position: unset;
+        right: unset;
+        top: unset;
+        margin: 18vh auto -7%;
+    }
+
+    #login {
+        position: unset;
+        left: unset;
+        top: unset;
+        margin: -60vh auto 0;
+    }
+}

@@ -6,17 +6,34 @@
   margin: 0;
   padding: 0;
 }
+body {
+    width: auto;
+    height: 100vh;
+    overflow: hidden;
+}
+
+img {
+    
+    position: absolute;
+    width: 100vw;
+    height: auto;
+}
 
 .main {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+   position: absolute;
 }
 
 textarea {
-  top: 10px;
-  width: 600px;
+  width: 480px;
   height: 600px;
   resize: none;
+  position: absolute;
+  border: transparent;
 
 }
 
@@ -26,6 +43,8 @@ input[type="submit"] {
   padding: 10px 30px;
   text-decoration: none;
   font-size: 1em;
+  z-index: 9999;
+  position: absolute;
 }
 
 input[type="submit"]:hover {
@@ -36,4 +55,12 @@ input[type="submit"]:hover {
 input[type="text"] {
   width: 600px;
   height: 60px;
+
 }
+
+.form-container{
+  position: absolute;
+  top: 25%;
+  left: 35%;
+}
+
