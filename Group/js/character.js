@@ -59,8 +59,7 @@ fetch('./config/characterdatabase.php')
 function createCharacterCard(character) {
   const characterElem = document.createElement('div');
   characterElem.classList.add('character');
-  characterElem.setAttribute('data-key', character.id); // ID matches key from API
-
+  characterElem.setAttribute('data-key', character.id); 
   const imgElem = document.createElement('img');
   imgElem.classList.add('character__img');
   imgElem.src = character.imgSrc;
@@ -78,7 +77,7 @@ function createCharacterCard(character) {
 
 // update the table
 function updateTable(facts, characterName) {
-  tableBody.innerHTML = ''; // Clear the table before adding new facts
+  tableBody.innerHTML = ''; 
 
   const nameRow = document.createElement('tr');
   const nameCell = document.createElement('td');

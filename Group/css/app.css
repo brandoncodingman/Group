@@ -80,11 +80,10 @@ body {
       }
 
       .slide-in {
-        transform: translateY(0); /* Move images to their final position */
-        opacity: 1; /* Make images visible */
+        transform: translateY(0);
+        opacity: 1; 
       }
 
-      /* Optional: fade out cover images after animation */
       .hide {
         opacity: 0;
         pointer-events: none;
