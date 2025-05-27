@@ -1,5 +1,6 @@
 //char select
 const tableBody = document.querySelector('table tbody');
+const selectContainer = document.querySelector('.select-container'); // Add this line
 
 // Load character facts 
 fetch('./config/characterdatabase.php')
@@ -18,7 +19,7 @@ fetch('./config/characterdatabase.php')
     // creat table from api data
     for (const key in data) {
       const character = data[key];
-      character.id = key; // Save the key as an ID for later reference
+      character.id = key; 
       const characterCard = createCharacterCard(character);
       selectContainer.appendChild(characterCard);
     }
