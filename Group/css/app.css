@@ -8,7 +8,7 @@
 
 body {
   overflow-y: auto; 
-  background-image: url('https://i.pinimg.com/474x/03/3d/01/033d01bb81b5c8d30958e7b10ba1a22b.jpg');
+  background-image: url('../img/background2.jfif');
   background-position: center;
   background-size: cover;
   background-repeat: repeat;
@@ -104,6 +104,7 @@ body {
 #nav ul li {
   padding: 25px 25px;
   transition: background-color 0.8s ease, border 0.8s ease;
+    margin: 18px;
 }
 
 #nav ul li:hover {
