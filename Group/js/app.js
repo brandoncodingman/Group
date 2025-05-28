@@ -30,8 +30,8 @@ document.addEventListener("keydown", function (e) {
     character.style.left = posX + "px";
 });
 
-// Example of changing the character image dynamically (you can call this from elsewhere)
-updateCharacterImage('./img/earth-nobg.png');  // Replace with the new image URL
+
+updateCharacterImage('./img/default.png');  
 
 
 

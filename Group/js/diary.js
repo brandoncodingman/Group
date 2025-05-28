@@ -56,7 +56,8 @@
 
 
         // Add to container
-        container.appendChild(balloon);
+        container.insertBefore(balloon, container.firstChild);
+
 
         // Optional: Reset form
         form.reset();
