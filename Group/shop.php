@@ -1,20 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/music.css">
-    <script src="./js/music.js" defer></script>
-</head>
-<body>
-    <header>
-      <h1>Fluffy Planets</h1>
-        <button id="music-toggle" class="music-btn">🔇 Music Off</button>
-  </header>
-    
-</body>
-=======
 
 <head>
     <meta charset="UTF-8">
@@ -28,14 +13,16 @@
     <link rel="stylesheet" href="./css/app.css" />
 
      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-
+    <link rel="stylesheet" href="./css/music.css">
+    <script src="./js/music.js" defer></script>
     <title>ショップ</title>
 </head>
 
 <body>
     <header>
-        <h1>Fluffy Planets</h1>
-    </header>
+      <h1>Fluffy Planets</h1>
+        <button id="music-toggle" class="music-btn">🔇 Music Off</button>
+  </header>
 
     <nav id="nav">
         <ul>
@@ -86,4 +73,5 @@
     <script src="./js/shop.js"></script>
 
 </body>
+
 </html>
