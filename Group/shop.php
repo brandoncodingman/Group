@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/music.css">
+    <script src="./js/music.js" defer></script>
+</head>
+<body>
+    <header>
+      <h1>Fluffy Planets</h1>
+        <button id="music-toggle" class="music-btn">🔇 Music Off</button>
+  </header>
+    
+</body>
+=======
 
 <head>
     <meta charset="UTF-8">
@@ -71,5 +86,4 @@
     <script src="./js/shop.js"></script>
 
 </body>
-
 </html>
