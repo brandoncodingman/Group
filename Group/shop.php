@@ -11,18 +11,17 @@
         rel="stylesheet" />
     <!-- <link rel="stylesheet" href="index.html"> -->
     <link rel="stylesheet" href="./css/app.css" />
-
-     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="./css/music.css">
     <script src="./js/music.js" defer></script>
-    <title>ショップ</title>
+    <link rel="stylesheet" href="./css/shop.css">
+    <title>Shop</title>
 </head>
 
 <body>
     <header>
-      <h1>Fluffy Planets</h1>
+        <h1>Fluffy Planets</h1>
         <button id="music-toggle" class="music-btn">🔇 Music Off</button>
-  </header>
+    </header>
 
     <nav id="nav">
         <ul>
@@ -40,34 +39,46 @@
     </div>
 
     <div class="shop">
-        <div class="t-shirt">
-            <div><img src="../Group/img/Tshirt_front.png" alt=""></div>
-            <div><img src="../Group/img/Tshirt_back.png" alt=""></div>
+        <div class="tshirt_container">
+            <div class="t-shirt">
+                <li><img src="../Group/img/Tshirt_front.png" alt=""></li>
+                <!-- <li><img src="../Group/img/Tshirt_back.png" alt=""></li> -->
+            </div>
+            <p class="name">Tシャツ</p>
+            <p class="price">￥3,630</p>
         </div>
         <div class="case_beige">
             <img src="../Group/img/case_beige.png" alt="">
+            <p class="name">スマホケース(ベージュ) </p>
+            <p class="price">￥2,530</p>
         </div>
         <div class="case_green">
             <img src="../Group/img/case_green.png" alt="">
+            <p class="name">スマホケース(グリーン) </p>
+            <p class="price">￥2,530</p>
         </div>
         <div class="Tumbler">
             <img src="../Group/img/Tumbler.png" alt="">
+            <p class="name">タンブラー (2個セット) </p>
+            <p class="price">￥8,800</p>
         </div>
         <div class="DIARY">
             <img src="../Group/img/DIARY.png" alt="">
+            <p class="name">日記帳</p>
+            <p class="price">￥1,100</p>
         </div>
         <div class="underlay">
             <img src="../Group/img/underlay.png" alt="">
+            <p class="name">下敷き</p>
+            <p class="price">￥550</p>
         </div>
     </div>
 
 
 
-    <footer>&copy; 2025 Fluffy Planet</footer>
-    
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <footer>&copy; 2025 Fluffy Planets</footer>
+
+
     <!-- <script src="./js/app.js"></script> -->
     <script src="./js/hamburger.js"></script>
     <script src="./js/shop.js"></script>
