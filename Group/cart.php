@@ -11,12 +11,15 @@
     />
     <link rel="stylesheet" href="./css/app.css" />
     <link rel="stylesheet" href="./css/cart.css" />
+    <script src="./js/music.js" defer></script>
+    <link rel="stylesheet" href="./css/music.css">
   </head>
   <body>
   <img id="character" src="./img/default.png" alt="Character" />
 
   <header>
-    <h1>Fluffy Planets</h1>
+      <h1>Fluffy Planets</h1>
+        <button id="music-toggle" class="music-btn">🔇 Music Off</button>
   </header>
 
   <nav id="nav">

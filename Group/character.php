@@ -15,9 +15,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/character.css" />
+     <link rel="stylesheet" href="./css/music.css" />
     <script src="./js/app.js" defer></script>
     <script src="./js/hamburger.js" defer></script>
     <script src="./js/character.js" defer></script>
+    <script src="./js/music.js" defer></script>
   </head>
   <body>
     <!-- <video id="video" style="display: none;" src="./img/onload.mp4"></video> -->
@@ -27,6 +29,7 @@
 
     <header>
       <h1>Fluffy Planets</h1>
+        <button id="music-toggle" class="music-btn">🔇 Music Off</button>
     </header>
 
     <nav id="nav">
