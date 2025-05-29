@@ -1,7 +1,77 @@
 @charset 'UTF-8';
 
+*,
+html,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+}
+
 .shop {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
+    margin-top: 12vh;
+}
+
+.t-shirt li {
+    list-style-type: none;
+}
+
+.tshirt_container,
+.case_beige,
+.case_green,
+.Tumbler,
+.DIARY,
+.underlay {
+    text-align: center;
+    width: 35vw;
+    background-color: rgb(247, 247, 247, 0.7);
+    border: 5px solid #ff69B4;
+    margin: 5vh 5vw;
+    padding: 5vh 0;
+}
+
+img {
+    width: 30vw;
+}
+
+.name {
+    font-size: 25px;
+}
+
+.price {
+    font-size: 20px;
+}
+
+@media screen and (max-width: 650px) {
+    .shop {
+        flex-direction: column;
+    }
+
+    .tshirt_container,
+    .case_beige,
+    .case_green,
+    .Tumbler,
+    .DIARY,
+    .underlay {
+        width: 70vw;
+
+        margin: 4vh auto;
+        padding: 5vh 0;
+    }
+
+    img {
+        width: 65vw;
+    }
+
+    .name {
+        font-size: 25px;
+    }
+
+    .price {
+        font-size: 20px;
+    }
 }
