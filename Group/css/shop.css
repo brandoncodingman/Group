@@ -1,7 +1,0 @@
-@charset 'UTF-8';
-
-.shop {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
