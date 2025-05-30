@@ -16,10 +16,6 @@ html,
     margin-top: 12vh;
 }
 
-.t-shirt li {
-    list-style-type: none;
-}
-
 .tshirt_container,
 .case_beige,
 .case_green,
@@ -44,6 +40,68 @@ img {
 
 .price {
     font-size: 20px;
+}
+
+#front {
+    position: relative;
+    display: block;
+}
+
+#back {
+    display: none;
+    position: relative;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px black solid;
+    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 45px;
+    padding: 20px;
+}
+
+button:hover{
+    border: 3.5px black solid;
+    background-color: rgb(252, 181, 207);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight:1000;
+    font-size: 33px;
+}
+
+.left {
+    position: absolute;
+    top: 50%;
+    left: 2.5vw;
+    z-index: 10;
+
+}
+
+.right {
+    position: absolute;
+    top: 50%;
+    right: 2.5vw;
+}
+
+.t-shirt{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.t-shirt img {
+    margin: 0 auto;
+}
+
+.t-shirt #front{
+    display: flex;
+    align-items: center;
 }
 
 @media screen and (max-width: 650px) {
