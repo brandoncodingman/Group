@@ -42,7 +42,7 @@
         <div class="img">
             <button class="left"><</button>
             <!-- <img src="./img/t_both.png" alt="" class="t-shirtimg"> -->
-             <img src="./img/Tshirt_front.png" alt="" id="front">
+             <img src="./img/Tshirt_front.png" alt="" id="front" style="display: block;">
              <img src="./img/Tshirt_back.png" alt="" id="back">
             <button class="right">></button>
         </div>
