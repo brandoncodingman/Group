@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,11 +14,12 @@
     <link rel="stylesheet" href="./css/music.css">
     <script src="./js/music.js" defer></script>
     <link rel="stylesheet" href="./css/shop.css">
-    <link rel="stylesheet" href="t-shirt.css">
-    <title>Shop - t-shirt </title>
+    <link rel="stylesheet" href="./css/t-shirt.css">
+    <title>Shop - t-shirt</title>
 </head>
+
 <body>
-        <header>
+    <header>
         <h1>Fluffy Planets</h1>
         <button id="music-toggle" class="music-btn">🔇 Music Off</button>
     </header>
@@ -36,34 +38,34 @@
         <span class="bar"></span>
         <span class="bar"></span>
     </div>
-    <h1>Tシャツ</h1>
     <div class="t-shirt">
-        <img src="../Group/img/Tshirt_front.png" alt="">
-        <img src="../Group/img/Tshirt_back.png" alt="">
+        <div class="img">
+            <button class="left"><</button>
+            <!-- <img src="./img/t_both.png" alt="" class="t-shirtimg"> -->
+             <img src="./img/Tshirt_front.png" alt="" id="front">
+             <img src="./img/Tshirt_back.png" alt="" id="back">
+            <button class="right">></button>
+        </div>
+        <div class="detail">
+
+            <h1>Tシャツ</h1>
+            <p>￥3,630</p>
+            <div class="count">
+                <img src="../Group/img/mainasu.svg" alt="">
+                <p>0</p>
+                <img src="../Group/img/plus.svg" alt="">
+            </div>
+            <input type="submit" value="カートに入れる">
+        </div>
     </div>
-    <p>￥3,630</p>
-
-    <select name="" id="">
-        <?= `<option value="{$value}>{$value}</option>` ?>
-    <?php
-    for($i = 1; $i<10; $i++){
-        $value =$i++;
-    }
-
-    for($i =1; $i<10; $i--){
-        $value =$i--;
-    }
-
-    ?>
-    </select>
-    <input type="submit" value="カートに入れる">
-    
 
     <footer>&copy; 2025 Fluffy Planets</footer>
 
 
     <!-- <script src="./js/app.js"></script> -->
+     <script src="./js/t-shirt.js"> </script>
     <script src="./js/hamburger.js"></script>
     <script src="./js/shop.js"></script>
 </body>
+
 </html>

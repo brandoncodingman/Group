@@ -1,7 +1,78 @@
 @charset "UTF-8";
 
+*,
+html,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+}
+
 .t-shirt {
+    display: flex;
     background-color: rgb(247, 247, 247, 0.7);
     border: 5px solid #ff69B4;
-    
+    margin: 5vh 10vw;
+    padding: 5vh 10vw;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 25px;
+}
+
+.img {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#front {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    display: block;
+}
+
+#back {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+}
+
+.left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 10;
+}
+
+.right {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+}
+
+.count {
+    display: flex;
+
+}
+
+.count img {
+    width: 40%;
 }

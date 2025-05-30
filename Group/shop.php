@@ -42,8 +42,10 @@
     <div class="shop">
         <div class="tshirt_container">
             <div class="t-shirt">
-                <li><img src="../Group/img/Tshirt_front.png" alt=""></li>
-                <!-- <li><img src="../Group/img/Tshirt_back.png" alt=""></li> -->
+                <button class="left"><</button>
+                <img src="../Group/img/Tshirt_front.png" alt="" id="front">
+                <img src="../Group/img/Tshirt_back.png" alt="" id="back">
+                <button class="right">></button>
             </div>
             <p class="name">Tシャツ</p>
             <p class="price">￥3,630</p>
@@ -81,6 +83,7 @@
 
 
     <!-- <script src="./js/app.js"></script> -->
+     <script src="./js/t-shirt.js"></script>
     <script src="./js/hamburger.js"></script>
     <script src="./js/shop.js"></script>
 
