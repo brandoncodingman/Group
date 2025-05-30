@@ -43,7 +43,7 @@
         <div class="tshirt_container">
             <div class="t-shirt">
                 <button class="left"><</button>
-                <img src="../Group/img/Tshirt_front.png" alt="" id="front">
+                <img src="../Group/img/Tshirt_front.png" alt="" id="front" style="display: block;">
                 <img src="../Group/img/Tshirt_back.png" alt="" id="back">
                 <button class="right">></button>
             </div>
