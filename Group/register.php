@@ -11,19 +11,24 @@
 </head>
 
 <body>
+    <img src="./img/close_door.jpg" alt="">
     <div class="login">
         <h1>ユーザーIDとパスワードを設定してください</h1>
         <p>ログインは<a href="login.php">こちら</a>へ</p>
         <div class="form">
-            <form action="" method="POST">
+            <form action="actions/Register.php" method="POST">
                 <div class="input">
                     <span>ユーザーID：<input type="text" name="username"></span><br>
                     <span>パスワード：<input type="text" name="password"></span><br>
                 </div>
-                <div class="submit"><input type="submit" value="登録" ></div>
+                <div class="submit-container">
+            <input class="submit" type="submit" value="登録" />
+          </div>
             </form>
         </div>
     </div>
+      <!-- <script src="./js/register.js"></script> -->
+
 </body>
 
 </html>

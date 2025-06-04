@@ -1,6 +1,6 @@
 //char select
 const tableBody = document.querySelector('table tbody');
-const selectContainer = document.querySelector('.select-container'); // Add this line
+const selectContainer = document.querySelector('.select-container'); 
 
 // Load character facts 
 fetch('./config/characterdatabase.php')
@@ -75,7 +75,7 @@ function createCharacterCard(character) {
   return characterElem;
 }
 
-// update the table
+// update table
 function updateTable(facts, characterName) {
   tableBody.innerHTML = ''; 
 
