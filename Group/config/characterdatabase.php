@@ -5,8 +5,8 @@ header('Access-Control-Allow-Origin: *');
 // Database configuration
 $host = 'localhost';
 $dbname = 'fluffy_planets';
-$username = 'root';  // Replace with your MySQL username
-$password = '';  // Replace with your MySQL password
+$username = 'root';  
+$password = '';  
 
 try {
     // Create PDO connection

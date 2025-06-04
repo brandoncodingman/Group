@@ -33,10 +33,11 @@
     </header>
 
     <nav id="nav">
-      <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./diary.php">Diary</a></li>
+           <ul>
+        <li><a href="./index.php">Home</a></li>
+        <li><a href="./diary1.php">Diary</a></li>
         <li><a href="./character.php">Character</a></li>
+        <li><a href="./information.php">Info</a></li>
         <li><a href="./shop.php">Shop</a></li>
         <li><a href="./cart.php">Cart</a></li>
       </ul>
@@ -67,11 +68,15 @@
       </div>
 
       <h1 class="title">Character Select</h1>
-
+ <!-- purchase button -->
+  <div class="button-container">
+    <button id="purchase-button">Buy</button>
+</div>
       <div class="select-container">
         <!-- Characters here from js -->
       </div>
     </div>
+
 <div class="table-container">
   <table>
     <thead>

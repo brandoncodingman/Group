@@ -33,6 +33,43 @@ body {
   letter-spacing: 0.2em;
   font-size: 50px;
       }
+      
+      .button-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        gap: 20px;
+      }
+
+      .button-container #purchase-button{
+        background-color: #58a15a;
+        border: none;
+        color: white;
+        padding: 20px 38px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 25% 75% 75% 25% / 25% 75% 25% 75%;
+        transition: background-color 1.3s ease;
+              /* slowly change border radius */
+              
+
+      }
+
+      
+     .button-container #purchase-button:hover {
+         background-color: #48fc4e;
+        font-weight: bolder;
+         border-radius: 75% 35% 35% 75% / 75% 25% 35% 45%;
+}
+
+        
+      
 
       .sidebar {
         flex: 1;
