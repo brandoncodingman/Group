@@ -10,6 +10,7 @@ html,
 
 .t-shirt {
     display: flex;
+    justify-content: space-between;
     background-color: rgb(247, 247, 247, 0.7);
     border: 5px solid #ff69B4;
     margin: 5vh 10vw;
@@ -19,6 +20,12 @@ html,
 .detail {
     display: flex;
     flex-direction: column;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
 }
 
 h1 {
@@ -70,9 +77,26 @@ p {
 
 .count {
     display: flex;
-
+    justify-content: center;
 }
 
 .count img {
-    width: 40%;
+    width: 10%;
+}
+
+.count p {
+    font-size: 25px;
+}
+
+.count img:nth-child(1) {
+    margin-right: 2vw;
+}
+
+.count img:nth-child(3) {
+    margin-left: 2vw;
+}
+
+.detail input[type="submit"] {
+    margin: 0 auto;
+    width: 50%;
 }
