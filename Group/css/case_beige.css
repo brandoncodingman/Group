@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+*,
+html,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+}
+
+.case_beige {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(247, 247, 247, 0.7);
+    border: 5px solid #ff69B4;
+    margin: 5vh 10vw;
+    padding: 5vh 10vw;
+    position: relative;
+    /* aspect-ratio: 1/1; */
+    width: 80%;
+    height: 100%;
+    overflow: hidden;
+    align-items: center;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    
+}
+
+h1 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 25px;
+}
+
+.count {
+    display: flex;
+
+}
+
+.count img {
+    width: 40%;
+}
