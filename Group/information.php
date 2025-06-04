@@ -44,6 +44,7 @@
     </div>
     <main>
       <div class="president-container">
+        <h1 class="section-heading">Fluffy Planets Staff</h1>
         <div class="image-container">
           <img
             id="president-image"
@@ -52,7 +53,7 @@
           />
         </div>
         <div class="information-container">
-          <h2>👑 Fluffy Planets' 王様のご紹介</h2>
+          <h2>👑 Fluffy Planets'全王様のご紹介</h2>
           <div>
             <h3>名前：</h3>
             <p>バルバロス一世・もふもふ皇帝陛下</p>
@@ -86,6 +87,7 @@
 
       <!-- vice president start -->
       <div class="vice-container">
+        <h1 class="section-heading">Fluffy Planets Staff</h1>
         <div class="image-container">
           <img id="vice-image" src="./img/fusion.jpg" alt="vice" />
         </div>
@@ -123,6 +125,7 @@
       <!-- company information start -->
 
       <div class="company-container">
+        <h1 class="section-heading">Fluffy Planets Information</h1>
         <div class="image-container">
           <img id="company-image" src="./img/logo.jfif" alt="Fluffy Planets" />
         </div>
