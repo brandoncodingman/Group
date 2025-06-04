@@ -26,9 +26,9 @@
     <nav id="nav">
         <ul>
             <li><a href="./index.html">Home</a></li>
-            <li><a href="./diary.php">Diary</a></li>
+            <li><a href="./diary1.php">Diary</a></li>
             <li><a href="./character.php">Character</a></li>
-              <li><a href="./information.html">Info</a></li>
+            <li><a href="./information.html">Info</a></li>
             <li><a href="./shop.php">Shop</a></li>
             <li><a href="./cart.php">Cart</a></li>
         </ul>
@@ -43,37 +43,51 @@
         <div class="tshirt_container">
             <div class="t-shirt">
                 <button class="left"><</button>
-                <img src="../Group/img/Tshirt_front.png" alt="" id="front" style="display: block;">
-                <img src="../Group/img/Tshirt_back.png" alt="" id="back">
-                <button class="right">></button>
+                    <a href="./t-shirt.php">
+                            <img src="../Group/img/Tshirt_front.png" alt="" id="front" style="display: block;">
+                            <img src="../Group/img/Tshirt_back.png" alt="" id="back">
+                        </a>
+                            <button class="right">></button>
+                </div>
+                <a href="./t-shirt.php">
+                    <p class="name">Tシャツ</p>
+                </a>
+                <p class="price">￥3,630</p>
             </div>
-            <p class="name">Tシャツ</p>
-            <p class="price">￥3,630</p>
-        </div>
         <div class="case_beige">
-            <img src="../Group/img/case_beige.png" alt="">
-            <p class="name">スマホケース(ベージュ) </p>
-            <p class="price">￥2,530</p>
-        </div>
+                <a href="./case_beige.php">
+                <img src="../Group/img/case_beige.png" alt="">
+                <p class="name">スマホケース(ベージュ) </p>
+            </a>
+                <p class="price">￥2,530</p>
+            </div>
         <div class="case_green">
+                <a href="./case_green.php">
             <img src="../Group/img/case_green.png" alt="">
-            <p class="name">スマホケース(グリーン) </p>
-            <p class="price">￥2,530</p>
-        </div>
+                <p class="name">スマホケース(グリーン) </p>
+            </a>
+                <p class="price">￥2,530</p>
+            </div>
         <div class="Tumbler">
-            <img src="../Group/img/Tumbler.png" alt="">
-            <p class="name">タンブラー (2個セット) </p>
-            <p class="price">￥8,800</p>
-        </div>
+                <a href="./Tumbler.php">
+                <img src="../Group/img/Tumbler.png" alt="">
+                <p class="name">タンブラー (2個セット) </p>
+            </a>
+                <p class="price">￥8,800</p>
+            </div>
         <div class="DIARY">
-            <img src="../Group/img/DIARY.png" alt="">
-            <p class="name">日記帳</p>
-            <p class="price">￥1,100</p>
-        </div>
+                <a href="./DIARY.php">
+                <img src="../Group/img/DIARY.png" alt="">
+                <p class="name">日記帳</p>
+            </a>
+                <p class="price">￥1,100</p>
+            </div>
         <div class="underlay">
-            <img src="../Group/img/underlay.png" alt="">
-            <p class="name">下敷き</p>
-            <p class="price">￥550</p>
+            <a href="./underlay.php">
+                <img src="../Group/img/underlay.png" alt="">
+                <p class="name">下敷き</p>
+            </a>
+                <p class="price">￥550</p>
         </div>
     </div>
 
@@ -83,7 +97,7 @@
 
 
     <!-- <script src="./js/app.js"></script> -->
-     <script src="./js/t-shirt.js"></script>
+    <script src="./js/t-shirt.js"></script>
     <script src="./js/hamburger.js"></script>
     <script src="./js/shop.js"></script>
 

@@ -52,7 +52,7 @@ img {
     position: relative;
 }
 
-button{
+.t-shirt button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,7 +67,7 @@ button{
     padding: 20px;
 }
 
-button:hover{
+.t-shirt button:hover{
     border: 3.5px black solid;
     background-color: rgb(252, 181, 207);
     font-family: 'Courier New', Courier, monospace;
