@@ -26,14 +26,15 @@
     <header>
       <h1>Fluffy Planets</h1>
       <button id="music-toggle" class="music-btn">🔇 Music Off</button>
+         <button id="login-toggle"><?php echo "$login-toggle"?></button>
     </header>
 
     <nav id="nav">
       <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./diary.php">Diary</a></li>
+        <li><a href="./index.php">Home</a></li>
+        <li><a href="./diary1.php">Diary</a></li>
         <li><a href="./character.php">Character</a></li>
-        <li><a href="./information.html">Info</a></li>
+        <li><a href="./information.php">Info</a></li>
         <li><a href="./shop.php">Shop</a></li>
         <li><a href="./cart.php">Cart</a></li>
       </ul>

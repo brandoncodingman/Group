@@ -11,19 +11,22 @@
 </head>
 
 <body>
+    <img  src="./img/open_door.jpg" alt="">
     <div class="login">
-        <h1>ユーザーIDとパスワードを入力してください</h1>
-        <p>新規登録は<a href="register.php">こちら</a>へ</p>
+        <h1>ユーザーIDとパスワード<br class="br">を入力してください</h1>
+        <p>新規登録は<a href="register.html">こちら</a>へ</p>
         <div class="form">
             <form action="" method="POST">
                 <div class="input">
-                    <span>ユーザーID：<input type="text" name="username"></span><br>
-                    <span>パスワード：<input type="text" name="password"></span><br>
+                    <span>ユーザーID：<br class="br"><input type="text" name="username"></span><br>
+                    <span>パスワード：<br class="br"><input type="text" name="password"></span><br>
                 </div>
-                <div class="submit"><input type="submit" value="ログイン" ></div>
+                <div class="submit-container"><input class="submit" type="submit" value="ログイン" ></div>
             </form>
         </div>
     </div>
 </body>
 
 </html>
+
+
