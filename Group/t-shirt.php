@@ -51,9 +51,9 @@
             <h1>Tシャツ</h1>
             <p>￥3,630</p>
             <div class="count">
-                <img src="../Group/img/mainasu.svg" alt="">
-                <p>0</p>
-                <img src="../Group/img/plus.svg" alt="">
+                <img src="../Group/img/mainasu.svg" alt="マイナスボタン" id="decrease">
+                <p id="quantity">1</p>
+                <img src="../Group/img/plus.svg" alt="プラスボタン" id="increase">
             </div>
             <input type="submit" value="カートに入れる">
         </div>
