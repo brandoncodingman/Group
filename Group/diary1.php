@@ -1,3 +1,11 @@
+<?php
+require_once __DIR__ . '/core/Session.php';
+
+Session::requireLoginForAllPages();
+
+$loginStatus = Session::getLoginStatus();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,14 +22,26 @@
     <script src="./js/music.js" defer></script>
   </head>
   <body>
+      <?php include_once __DIR__ . '/includes/header.php'; ?>
     <!-- <video id="video" style="display: none;" src="./img/onload.mp4"></video> -->
     <!-- Character -->
     <img id="character" src="./img/default.png" alt="Character" />
 
-    <!-- Page layout -->
-    <header>
-      <h1>Fluffy Planets</h1>
+  <header>
+       <!-- Include common header with session management -->
+    <?php include_once __DIR__ . '../includes/Header.php'; ?>
+
+   
       <button id="music-toggle" class="music-btn">🔇 Music Off</button>
+         <?php if ($loginStatus['logged_in']): ?>
+    <?php endif; ?>
+
+      <h1>Fluffy Planets</h1>
+    <div class="user-info">
+        <span class="username">ようこそ、<?php echo htmlspecialchars($loginStatus['username']); ?>さん！</span>
+        <span class="points">ポイント: <?php echo $loginStatus['points']; ?></span>
+        <a href="actions/logout.php" class="logout-btn">ログアウト</a>
+    </div>
     </header>
 
     <nav id="nav">

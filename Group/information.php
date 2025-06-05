@@ -16,16 +16,28 @@
     <script src="./js/music.js" defer></script>
   </head>
   <body>
+     <?php include_once __DIR__ . '../includes/Header.php'; ?>
     <!-- <video id="video" style="display: none;" src="./img/onload.mp4"></video> -->
     <!-- Character -->
     <img id="character" src="./img/default.png" alt="Character" />
 
     <!-- Page layout -->
-    <header>
-      <h1>Fluffy Planets</h1>
-      <button id="music-toggle" class="music-btn">🔇 Music Off</button>
-    </header>
+     <header>
+       <!-- Include common header with session management -->
+    <?php include_once __DIR__ . '../includes/Header.php'; ?>
 
+   
+      <button id="music-toggle" class="music-btn">🔇 Music Off</button>
+         <?php if ($loginStatus['logged_in']): ?>
+    <?php endif; ?>
+
+      <h1>Fluffy Planets</h1>
+    <div class="user-info">
+        <span class="username">ようこそ、<?php echo htmlspecialchars($loginStatus['username']); ?>さん！</span>
+        <span class="points">ポイント: <?php echo $loginStatus['points']; ?></span>
+        <a href="actions/logout.php" class="logout-btn">ログアウト</a>
+    </div>
+    </header>
     <nav id="nav">
            <ul>
         <li><a href="./index.php">Home</a></li>

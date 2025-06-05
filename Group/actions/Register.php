@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/../core/DBManager.php';
+require_once __DIR__ . '/../core/Session.php';
 
-
-class Register {
+Class Register {
     private PDO $pdo;
 
     public function __construct(DbManager $dbManager) {
@@ -15,7 +15,7 @@ class Register {
             return;
         }
 
-        
+        // Check if username already exists
         $stmt = $this->pdo->prepare("SELECT id FROM user_info WHERE name = ?");
         $stmt->execute([$username]);
 
@@ -26,11 +26,23 @@ class Register {
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        // ポイントは300
+        // Insert new user with 3000 points
         $insert = $this->pdo->prepare("INSERT INTO user_info (name, pass, points) VALUES (?, ?, 3000)");
         $insert->execute([$username, $hashedPassword]);
 
-        echo "登録が完了しました！（ポイント: 3000）";
+        // Get the newly created user's ID
+        $userId = $this->pdo->lastInsertId();
+
+        // Automatically log in the user after registration
+        Session::start();
+        $_SESSION['user_id'] = $userId;
+        $_SESSION['username'] = $username;
+        $_SESSION['points'] = 3000;
+        $_SESSION['logged_in'] = true;
+
+        // Redirect to index page
+        header('Location: ../index.php');
+        exit();
     }
 }
 
