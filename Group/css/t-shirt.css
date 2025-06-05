@@ -20,6 +20,7 @@ html,
 .detail {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     position: relative;
     aspect-ratio: 1 / 1;
     width: 50%;
@@ -28,12 +29,22 @@ html,
     text-align: center;
 }
 
-h1 {
-    font-size: 30px;
+.about {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
 }
 
-p {
-    font-size: 25px;
+#item {
+    font-size: 40px;
+    margin-right: 1vw;
+}
+
+#price {
+    font-size: 30px;
+    margin: 0;
+    align-self: center;
+    margin-left: 1vw;
 }
 
 .img {
@@ -75,28 +86,83 @@ p {
     right: 0%;
 }
 
+.buy {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+
+}
+
 .count {
     display: flex;
     justify-content: center;
 }
 
 .count img {
-    width: 10%;
+    width: 30%;
 }
 
-.count p {
+#quantity {
     font-size: 25px;
+    margin: auto 0;
 }
 
 .count img:nth-child(1) {
-    margin-right: 2vw;
+    margin-right: 1vw;
 }
 
 .count img:nth-child(3) {
-    margin-left: 2vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
 }
 
 .detail input[type="submit"] {
     margin: 0 auto;
+    width: 70%;
+    height: 6vh;
+    border: 2px solid rgb(247, 247, 247, 0.8);
+    background-color: #ff69b4dc;
+    border-radius: 5%;
+    font-size: 18px;
+}
+
+.detail input[type="submit"]:hover {
+    /* border: 2px solid #ff69b4dc;
+    background-color: rgb(247, 247, 247, 0.8); */
+    scale: 1.01 1.01;
+}
+
+.detail input[type="submit"]:active {
+    border: 2px solid #ff69b4dc;
+    background-color: rgb(247, 247, 247, 0.8);
+    scale: 0.99 0.99;
+}
+
+a {
+    text-decoration: none;
+}
+
+#back_shop {
+    all: unset;
+    cursor: pointer;
+    margin-top: 5vh;
+    align-self: center;
     width: 50%;
+    height: 5vh;
+    font-size: 20px;
+    color: black;
+    border: 2px solid #ff69b4dc;
+    background-color: rgb(247, 247, 247, 0.8);
+}
+
+#back_shop:hover {
+    /* border: 2px solid rgb(247, 247, 247, 0.8);
+    background-color: #ff69b4dc; */
+    scale: 1.01 1.01;
+}
+
+#back_shop:active {
+    border: 2px solid rgb(247, 247, 247, 0.8);
+    background-color: #ff69b4dc;
+    scale: 0.99 0.99;
 }
