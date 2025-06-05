@@ -34,12 +34,18 @@ body {
   font-size: 50px;
       }
       
-    .user-info{
+     .user-info span{
      font-size: 25px !important; 
      color: rgb(255, 0, 98);
      font-weight: bolder;
       }
 
+
+ .logout-btn{
+         font-size: 25px !important; 
+     color: rgb(128, 2, 50);
+     font-weight: bolder;
+      }
 
 
       .button-container{
@@ -359,6 +365,7 @@ tbody tr:first-child td {
 #nav ul li {
   padding: 25px 25px;
   transition: background-color 0.8s ease, border 0.8s ease;
+  margin: 18px;
 }
 
 #nav ul li:hover {

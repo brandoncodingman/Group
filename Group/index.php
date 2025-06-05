@@ -160,7 +160,7 @@ $loginStatus = Session::getLoginStatus();
       </table>
     </div>
 
-    <footer>&copy; 2025 Fluffy Planet</footer>
+    <footer>&copy; 2025 Fluffy Planets</footer>
 
     <script src="./js/app.js"></script>
     <script src="./js/hamburger.js"></script>
