@@ -41,21 +41,24 @@
     <div class="t-shirt">
         <div class="img">
             <button class="left"><</button>
-            <!-- <img src="./img/t_both.png" alt="" class="t-shirtimg"> -->
              <img src="./img/Tshirt_front.png" alt="" id="front" style="display: block;">
              <img src="./img/Tshirt_back.png" alt="" id="back">
             <button class="right">></button>
         </div>
         <div class="detail">
-
-            <h1>Tシャツ</h1>
-            <p>￥3,630</p>
-            <div class="count">
-                <img src="../Group/img/mainasu.svg" alt="マイナスボタン" id="decrease">
-                <p id="quantity">1</p>
-                <img src="../Group/img/plus.svg" alt="プラスボタン" id="increase">
+            <div class="about">
+                <h1 id="item">Tシャツ</h1>
+                <p id="price">￥3,630</p>
             </div>
-            <input type="submit" value="カートに入れる">
+            <div class="buy">
+                <div class="count">
+                    <img src="../Group/img/mainasu.svg" alt="マイナスボタン" id="decrease">
+                    <p id="quantity">1</p>
+                    <img src="../Group/img/plus.svg" alt="プラスボタン" id="increase">
+                </div>
+                <input type="submit" value="カートに入れる">
+            </div>
+            <a href="./shop.php"><button id="back_shop">一覧へ戻る</button></a>
         </div>
     </div>
 
