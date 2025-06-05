@@ -9,13 +9,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
         rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="index.html"> -->
     <link rel="stylesheet" href="./css/app.css" />
     <link rel="stylesheet" href="./css/music.css">
     <script src="./js/music.js" defer></script>
-    <link rel="stylesheet" href="./css/shop.css">
-    <link rel="stylesheet" href="./css/t-shirt.css">
-    <title>Shop - t-shirt</title>
+    <link rel="stylesheet" href="./css/case_green.css">
+    <title>Shop - case_green</title>
 </head>
 
 <body>
@@ -43,22 +41,24 @@
              <img src="./img/case_green.png" alt="" id="front" style="display: block;">
         </div>
         <div class="detail">
-
-            <h1>Tシャツ</h1>
-            <p>￥3,630</p>
-            <div class="count">
-                <img src="../Group/img/mainasu.svg" alt="">
-                <p>0</p>
-                <img src="../Group/img/plus.svg" alt="">
+           <div class="about">
+                <h1 id="item">スマホケース<br>(グリーン)</h1>
+                <p id="price">￥2,530</p>
             </div>
-            <input type="submit" value="カートに入れる">
+            <div class="buy">
+            <div class="count">
+                    <img src="../Group/img/mainasu.svg" alt="マイナスボタン" id="decrease">
+                    <p id="quantity">1</p>
+                    <img src="../Group/img/plus.svg" alt="プラスボタン" id="increase">
+                </div>
+                <input type="submit" value="カートに入れる">
+            </div>
+            <a href="./shop.php"><button id="back_shop">一覧へ戻る</button></a>
         </div>
     </div>
 
     <footer>&copy; 2025 Fluffy Planets</footer>
 
-
-    <!-- <script src="./js/app.js"></script> -->
      <script src="./js/t-shirt.js"> </script>
     <script src="./js/hamburger.js"></script>
     <script src="./js/shop.js"></script>

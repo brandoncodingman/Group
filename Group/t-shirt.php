@@ -9,11 +9,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
         rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="index.html"> -->
     <link rel="stylesheet" href="./css/app.css" />
     <link rel="stylesheet" href="./css/music.css">
     <script src="./js/music.js" defer></script>
-    <link rel="stylesheet" href="./css/shop.css">
     <link rel="stylesheet" href="./css/t-shirt.css">
     <title>Shop - t-shirt</title>
 </head>
@@ -64,8 +62,6 @@
 
     <footer>&copy; 2025 Fluffy Planets</footer>
 
-
-    <!-- <script src="./js/app.js"></script> -->
      <script src="./js/t-shirt.js"> </script>
     <script src="./js/hamburger.js"></script>
     <script src="./js/shop.js"></script>
