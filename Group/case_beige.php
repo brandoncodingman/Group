@@ -9,11 +9,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
         rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="index.html"> -->
     <link rel="stylesheet" href="./css/app.css" />
     <link rel="stylesheet" href="./css/music.css">
     <script src="./js/music.js" defer></script>
-    <link rel="stylesheet" href="./css/shop.css">
     <link rel="stylesheet" href="./css/case_beige.css">
     <title>Shop - case_beige</title>
 </head>
@@ -40,18 +38,22 @@
     </div>
     <div class="case_beige">
         <div class="img">
-             <img src="./img/case_beige.png" alt="" id="front" style="display: block;">
+            <img src="./img/case_beige.png" alt="" id="front" style="display: block;">
         </div>
         <div class="detail">
-
-            <h1>スマホケース(ベージュ)</h1>
-            <p>￥2,530</p>
-            <div class="count">
-                <img src="../Group/img/mainasu.svg" alt="">
-                <p>0</p>
-                <img src="../Group/img/plus.svg" alt="">
+            <div class="about">
+                <h1 id="item">スマホケース<br>(ベージュ)</h1>
+                <p id="price">￥2,530</p>
             </div>
-            <input type="submit" value="カートに入れる">
+            <div class="buy">
+                <div class="count">
+                    <img src="../Group/img/mainasu.svg" alt="マイナスボタン" id="decrease">
+                    <p id="quantity">1</p>
+                    <img src="../Group/img/plus.svg" alt="プラスボタン" id="increase">
+                </div>
+                <input type="submit" value="カートに入れる">
+            </div>
+            <a href="./shop.php"><button id="back_shop">一覧へ戻る</button></a>
         </div>
     </div>
 

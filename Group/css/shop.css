@@ -34,8 +34,39 @@ img {
     width: 30vw;
 }
 
+img:hover {
+    scale: 1.01 1.01;
+}
+
+/* .tshirt_container img,
+.case_beige img,
+.case_green img,
+.Tumbler img,
+.DIARY img,
+.underlay img {
+    width: 30vw;
+}
+
+.tshirt_container img:hover,
+.case_beige img:hover,
+.case_green img:hover,
+.Tumbler img:hover,
+.DIARY img:hover,
+.underlay img:hover {
+    scale: 1.01 1.01;
+} */
+
 .name {
     font-size: 25px;
+    color: black;
+}
+
+.name:hover {
+    color: rgb(87, 87, 87);
+}
+
+a {
+    text-decoration: none;
 }
 
 .price {
@@ -96,6 +127,10 @@ img {
 }
 
 .t-shirt img {
+    margin: 0 auto;
+}
+
+.t-shirt a {
     margin: 0 auto;
 }
 
