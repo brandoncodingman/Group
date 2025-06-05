@@ -11,7 +11,7 @@ body {
   min-height: 100vh;
   overflow-y: auto; 
  background-image: url('../img/background1.jfif');  background-position: center;
-  background-size: cover;
+  background-size:cover;
   background-repeat: repeat;
 }
 
@@ -40,9 +40,15 @@ display: flex;
   font-size: 50px;
       }
       
-          .user-info{
+      .user-info span {
      font-size: 25px !important; 
-     color: rgb(255, 0, 98);
+     color: rgb(255, 0, 98) !important;
+     font-weight: bolder !important;
+      }
+
+ .logout-btn{
+         font-size: 25px !important; 
+     color: rgb(128, 2, 50);
      font-weight: bolder;
       }
 

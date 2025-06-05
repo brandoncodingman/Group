@@ -1,9 +1,21 @@
 <?php
 require_once __DIR__ . '/core/Session.php';
+require_once __DIR__ . '/core/DBManager.php';
 
+// Make sure user is logged in or redirect
 Session::requireLoginForAllPages();
 
 $loginStatus = Session::getLoginStatus();
+
+$userId = Session::getUserId();
+
+$db = new DbManager();
+$conn = $db->getConnection();
+
+// Fetch diary entries for this user
+$stmt = $conn->prepare("SELECT date, title, content FROM diary WHERE user_id = :user_id ORDER BY date DESC");
+$stmt->execute([':user_id' => $userId]);
+$entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -23,29 +35,26 @@ $loginStatus = Session::getLoginStatus();
   </head>
   <body>
       <?php include_once __DIR__ . '/includes/header.php'; ?>
-    <!-- <video id="video" style="display: none;" src="./img/onload.mp4"></video> -->
-    <!-- Character -->
+
     <img id="character" src="./img/default.png" alt="Character" />
 
-  <header>
-       <!-- Include common header with session management -->
-    <?php include_once __DIR__ . '../includes/Header.php'; ?>
+    <header>
+      <?php include_once __DIR__ . '/includes/Header.php'; ?>
 
-   
       <button id="music-toggle" class="music-btn">🔇 Music Off</button>
-         <?php if ($loginStatus['logged_in']): ?>
-    <?php endif; ?>
+      <?php if ($loginStatus['logged_in']): ?>
+      <?php endif; ?>
 
       <h1>Fluffy Planets</h1>
-    <div class="user-info">
+      <div class="user-info">
         <span class="username">ようこそ、<?php echo htmlspecialchars($loginStatus['username']); ?>さん！</span>
         <span class="points">ポイント: <?php echo $loginStatus['points']; ?></span>
         <a href="actions/logout.php" class="logout-btn">ログアウト</a>
-    </div>
+      </div>
     </header>
 
     <nav id="nav">
-            <ul>
+      <ul>
         <li><a href="./index.php">Home</a></li>
         <li><a href="./diary1.php">Diary</a></li>
         <li><a href="./character.php">Character</a></li>
@@ -63,10 +72,7 @@ $loginStatus = Session::getLoginStatus();
 
     <div class="page-wrapper">
       <h1 class="form-header">Diary</h1>
-      <!-- a diary form, with date input, title input, and content text area -->
-      <form id="diary-form">
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required />
+      <form id="diary-form" action="./actions/Diary_Saves.php" method="POST">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required />
         <label for="content">Content:</label>
@@ -75,9 +81,21 @@ $loginStatus = Session::getLoginStatus();
       </form>
     </div>
 
-    <div id="balloon-container"></div>
+    <div id="balloon-container">
+      <?php if (!empty($entries)): ?>
+        <?php foreach ($entries as $entry): ?>
+          <div class="balloon" style="background-color: <?php echo '#' . substr(md5($entry['title']), 0, 6); ?>; border: black solid 10px; border-radius: 40% 30% 50% 40% / 50% 60% 30% 40%;">
+            <div class="balloon-date"><strong><?php echo htmlspecialchars(date('l, F j, Y', strtotime($entry['date']))); ?></strong></div>
+            <div class="balloon-title"><em><?php echo htmlspecialchars($entry['title']); ?></em></div>
+            <p class="balloon-text"><?php echo nl2br(htmlspecialchars($entry['content'])); ?></p>
+          </div>
+        <?php endforeach; ?>
+      <?php else: ?>
+        <p>No diary entries yet. Write your first one above!</p>
+      <?php endif; ?>
+    </div>
 
-    <footer>&copy; 2025 Fluffy Planet</footer>
+    <footer>&copy; 2025 Fluffy Planets</footer>
 
     <script src="./js/app.js"></script>
     <script src="./js/hamburger.js"></script>
