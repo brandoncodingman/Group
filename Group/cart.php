@@ -81,7 +81,7 @@
   </section>
   </div>
 
- <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created ❤️ with by Miyazaki, Matsura, Brandon.</span></footer>    <script src="./js/app.js"></script>
+ <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created with ❤️ by Miyazaki, Matsura, Brandon.</span></footer>    <script src="./js/app.js"></script>
     <script src="./js/hamburger.js"></script>
 <script src="./js/cart.js"></script>
     <script src="./js/character.js"></script>

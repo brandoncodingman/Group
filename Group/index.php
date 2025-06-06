@@ -158,7 +158,7 @@ $loginStatus = Session::getLoginStatus();
       </table>
     </div>
 
- <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created ❤️ with by Miyazaki, Matsura, Brandon.</span></footer>
+ <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created with ❤️ by Miyazaki, Matsura, Brandon.</span></footer>
     <script src="./js/app.js"></script>
     <script src="./js/hamburger.js"></script>
     <script src="./js/balloon.js"></script>
