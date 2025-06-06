@@ -96,7 +96,7 @@ $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
  <div class="footer-container">
-   <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created ❤️ with by Miyazaki, Matsura, Brandon.</span></footer>
+   <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created with ❤️ by Miyazaki, Matsura, Brandon.</span></footer>
  </div>
     <script src="./js/app.js"></script>
     <script src="./js/hamburger.js"></script>
