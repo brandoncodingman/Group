@@ -69,3 +69,31 @@ function getRandomBorderRadius() {
   const values = () => Array(4).fill().map(() => `${Math.floor(Math.random() * 50) + 20}%`).join(' ');
   return `${values()} / ${values()}`;
 }
+
+// Add click listeners to balloons already on the page
+function addClickListener(balloon) {
+  balloon.addEventListener('click', function () {
+    const isHovered = balloon.dataset.hovered === 'true';
+
+    if (!isHovered) {
+      balloon.style.backgroundColor = getRandomColor();
+      balloon.style.borderRadius = getRandomBorderRadius();
+      balloon.classList.add('hovered');
+      balloon.dataset.hovered = 'true';
+    } else {
+      balloon.style.backgroundColor = balloon.dataset.originalColor;
+      balloon.style.borderRadius = balloon.dataset.originalBorderRadius;
+      balloon.classList.remove('hovered');
+      balloon.dataset.hovered = 'false';
+    }
+  });
+}
+
+//  existing balloons
+document.querySelectorAll('.balloon').forEach(balloon => {
+  balloon.dataset.originalColor = balloon.style.backgroundColor || window.getComputedStyle(balloon).backgroundColor;
+  balloon.dataset.originalBorderRadius = balloon.style.borderRadius || window.getComputedStyle(balloon).borderRadius;
+  balloon.dataset.hovered = 'false';
+
+  addClickListener(balloon);
+});

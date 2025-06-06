@@ -31,6 +31,7 @@ $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="./css/diary.css" />
     <link rel="stylesheet" href="./css/music.css" />
     <script src="./js/music.js" defer></script>
+    <script src="./js/diary.js" defer></script>
   </head>
   <body>
       <?php include_once __DIR__ . '/includes/header.php'; ?>
