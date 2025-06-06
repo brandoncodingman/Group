@@ -13,7 +13,7 @@ html,
     justify-content: space-between;
     background-color: rgb(247, 247, 247, 0.7);
     width: 80vw;
-    border: 5px solid #ff69B4;
+    border: 0.3vw solid #ff69B4;
     margin: 5vh 10vw;
     padding: 5vh 10vw;
 }
@@ -37,12 +37,12 @@ html,
 }
 
 #item {
-    font-size: 40px;
+    font-size: 2.5vw;
     margin-right: 1vw;
 }
 
 #price {
-    font-size: 30px;
+    font-size: 2vw;
     margin: 0;
     align-self: center;
     margin-left: 1vw;
@@ -80,7 +80,7 @@ html,
 }
 
 #quantity {
-    font-size: 25px;
+    font-size: 1.5vw;
     margin: auto 0;
 }
 
@@ -96,11 +96,11 @@ html,
 .detail input[type="submit"] {
     margin: 0 auto;
     width: 70%;
-    height: 6vh;
-    border: 2px solid rgb(247, 247, 247, 0.8);
+    height: 4.5vh;
+    border: 0.125vw solid rgb(247, 247, 247, 0.8);
     background-color: #ff69b4dc;
     border-radius: 5%;
-    font-size: 18px;
+    font-size: 1.2vw;
 }
 
 .detail input[type="submit"]:hover {
@@ -108,7 +108,7 @@ html,
 }
 
 .detail input[type="submit"]:active {
-    border: 2px solid #ff69b4dc;
+    border: 0.125vw solid #ff69b4dc;
     background-color: rgb(247, 247, 247, 0.8);
     scale: 0.99 0.99;
 }
@@ -120,13 +120,13 @@ a {
 #back_shop {
     all: unset;
     cursor: pointer;
-    margin-top: 5vh;
     align-self: center;
-    width: 50%;
-    height: 5vh;
-    font-size: 20px;
+    width: 45%;
+    height: 4vh;
+    font-size: 1.3vw;
     color: black;
-    border: 2px solid #ff69b4dc;
+    border: 0.125vw solid #ff69b4dc;
+    border-radius: 5%;
     background-color: rgb(247, 247, 247, 0.8);
 }
 
@@ -135,7 +135,7 @@ a {
 }
 
 #back_shop:active {
-    border: 2px solid rgb(247, 247, 247, 0.8);
+    border: 0.125vw solid rgb(247, 247, 247, 0.8);
     background-color: #ff69b4dc;
     scale: 0.99 0.99;
 }
