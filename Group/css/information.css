@@ -434,3 +434,19 @@ body {
 #nav.active ul {
   transform: translateX(0);
 }
+
+   footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        letter-spacing: 0.2em;
+      }
+
+       footer .iip{
+        font-size: 20px;
+ letter-spacing: 0.2em;
+      }

@@ -13,6 +13,11 @@
         <a href="login.php"><input id="login" type="submit" value="ログイン" ></a>
         <a href="register.php"><input id="register" type="submit" value="新規登録"></a>
     </div>
-
+    <script src="./js/app.js"></script>
+    <script src="./js/hamburger.js"></script>
+    <script src="./js/balloon.js"></script>
+    <script src="./js/firstview.js"></script>
+     <script src="./js/global-character-loader.js"></script>
     </body>
+    
 </html>

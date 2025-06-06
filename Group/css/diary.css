@@ -350,4 +350,23 @@ form button:hover {
   50%     { transform: translateY(-5px); }
 }
 
-   
+   .footer-container footer{
+  display: flex;
+  height: auto;
+  flex-direction: column;
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        letter-spacing: 0.2em;
+      }
+
+
+
+       footer .iip{
+        font-size: 20px;
+ letter-spacing: 0.2em;
+      }

@@ -77,16 +77,16 @@ $loginStatus = Session::getLoginStatus();
       <div class="balloon">
         <a href="./shop.php"
           ><img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQrVRCMavYIdJeX8scGt7fFgko68DyLbQ03Q&s"
+            src="./img/clothingvideo.jpg"
             alt="shop"
           />
           <figcaption>Shop</figcaption></a
         >
       </div>
       <div class="balloon">
-        <a href="./diary.php"
+        <a href="./diary1.php"
           ><img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyomg2wGk2GWed1nIS67zfO92dwcLHWEA9Kg&s"
+            src="./img/diarybook.jpg"
             alt="diary"
           />
           <figcaption>Diary</figcaption></a
@@ -95,7 +95,7 @@ $loginStatus = Session::getLoginStatus();
       <div class="balloon">
         <a href="./character.php"
           ><img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS70RoBIbzwsQplSwSCV9gGKUW91-SQklpZxA&s"
+            src="./img/earth-nobg.png"
             alt="character"
           />
 
@@ -158,8 +158,7 @@ $loginStatus = Session::getLoginStatus();
       </table>
     </div>
 
-    <footer>&copy; 2025 Fluffy Planets</footer>
-
+ <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created ❤️ with by Miyazaki, Matsura, Brandon.</span></footer>
     <script src="./js/app.js"></script>
     <script src="./js/hamburger.js"></script>
     <script src="./js/balloon.js"></script>

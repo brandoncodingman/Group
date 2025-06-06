@@ -94,17 +94,27 @@ body {
         border: 1px solid #ccc;
       }
 
-      footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+     .footer-container footer{
+  display: flex;
+  height: auto;
+  flex-direction: column;
         background-color: #333;
         color: white;
         text-align: center;
-        padding: 25px;
-        margin-top: 20px;
-        position: sticky;
+        padding: 15px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        letter-spacing: 0.2em;
       }
+
+
+
+       footer .iip{
+        font-size: 20px;
+ letter-spacing: 0.2em;
+      }
+    
 
       #character {
         position: absolute;
