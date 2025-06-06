@@ -1,4 +1,18 @@
 <?php
+require_once "./core/DbManager.php"
 
-$host = 'localhost';
-$dbname = 'Purchase history'
+try{
+    
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注文履歴</title>
+</head>
+<body>
+</body>
+</html>
