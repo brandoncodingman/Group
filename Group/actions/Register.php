@@ -30,17 +30,15 @@ Class Register {
         $insert = $this->pdo->prepare("INSERT INTO user_info (name, pass, points) VALUES (?, ?, 3000)");
         $insert->execute([$username, $hashedPassword]);
 
-        // Get the newly created user's ID
+        // Get created user's ID
         $userId = $this->pdo->lastInsertId();
 
-        // Automatically log in the user after registration
         Session::start();
         $_SESSION['user_id'] = $userId;
         $_SESSION['username'] = $username;
         $_SESSION['points'] = 3000;
         $_SESSION['logged_in'] = true;
 
-        // Redirect to index page
         header('Location: ../index.php');
         exit();
     }

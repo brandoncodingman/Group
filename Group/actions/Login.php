@@ -15,12 +15,12 @@ Class Login {
             return false;
         }
 
-        // DEBUG: Show what we're searching for
+        // DEBUG
         echo "DEBUG: Searching for username: " . htmlspecialchars($username) . "<br>";
         echo "DEBUG: Password length: " . strlen($password) . "<br>";
         echo "DEBUG: Password (first 3 chars): " . substr($password, 0, 3) . "...<br>";
 
-        // Get user from database
+        // Get user database
         $stmt = $this->pdo->prepare("SELECT id, name, pass, points FROM user_info WHERE name = ?");
         $stmt->execute([$username]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -35,7 +35,7 @@ Class Login {
         echo "DEBUG: Stored hash: " . $user['pass'] . "<br>";
         echo "DEBUG: Hash info: " . print_r(password_get_info($user['pass']), true) . "<br>";
 
-        // Test password verification with detailed output
+        // Test password 
         echo "DEBUG: Testing password verification...<br>";
         $passwordMatch = password_verify($password, $user['pass']);
         echo "DEBUG: Password verification result: " . ($passwordMatch ? 'SUCCESS' : 'FAILED') . "<br>";
@@ -122,7 +122,7 @@ Class Login {
     }
 }
 
-// Handle password fix request (temporary debugging feature)
+// Handle password fix request 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'fix_password') {
     if (isset($_POST['username']) && isset($_POST['new_password'])) {
         $dbManager = new DbManager();

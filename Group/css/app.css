@@ -152,7 +152,7 @@ body {
   z-index: 1000;
 }
 
-/* Media query for responsiveness */
+/* Media  */
 @media (max-width: 768px) {
   #nav ul {
     display: none;
@@ -180,7 +180,6 @@ body {
   }
 }
 
-/* Add transition for smooth animation */
 #nav ul {
   transition: transform 0.3s ease;
 }

@@ -27,12 +27,11 @@ $loginStatus = Session::getLoginStatus();
   </head>
   <body>
     
-    <!-- <video id="video" style="display: none;" src="./img/onload.mp4"></video> -->
+    <video id="video" style="display: none;" src="./img/onload.mp4"></video>
     <!-- Character -->
     <img id="character" src="./img/default.png" alt="Character" />
 
   <header>
-       <!-- Include common header with session management -->
     <?php include_once __DIR__ . '../includes/Header.php'; ?>
 
    
@@ -72,7 +71,6 @@ $loginStatus = Session::getLoginStatus();
         Your browser does not support the video tag.
       </video>
 
-      <!-- Image element (hidden initially) -->
       <img id="imageElement" src="./img/header.png" alt="Fallback Image" />
     </div>
     <div class="balloon-container">
@@ -166,5 +164,6 @@ $loginStatus = Session::getLoginStatus();
     <script src="./js/hamburger.js"></script>
     <script src="./js/balloon.js"></script>
     <script src="./js/firstview.js"></script>
+     <script src="./js/global-character-loader.js"></script>
   </body>
 </html>

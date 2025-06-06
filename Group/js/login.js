@@ -26,13 +26,10 @@ const register = getElementById("register");
 form.addEventListener("submit", function (e) {
     e.preventDefault();
     if (submit) {
-        // login
     } else if (register) {
-        // register
     }
 });
 
-// Add hover effect to change background color to a random pastel color
 const fancyBoxes = document.querySelectorAll(".fancy-box");
 fancyBoxes.forEach((box) => {
   box.addEventListener("mouseenter", function () {
@@ -41,9 +38,9 @@ fancyBoxes.forEach((box) => {
   });
 });
 
-//register music
+
 function play(){
-// audio
+
 
 }
 

@@ -2,9 +2,8 @@ const form = document.getElementById('diary-form');
 const container = document.getElementById('balloon-container');
 
 form.addEventListener('submit', function (e) {
-  e.preventDefault(); // prevent default form submission
+  e.preventDefault(); 
 
-  // Get and format today's date/time
   const date = new Date().toLocaleDateString('en-US', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
   });
@@ -43,7 +42,6 @@ form.addEventListener('submit', function (e) {
     }
   });
 
-  // Add content to balloon
   balloon.innerHTML = `
     <div class="balloon-date"><strong>${date}</strong></div>
     <div class="balloon-title"><em>${title}</em></div>
@@ -52,11 +50,10 @@ form.addEventListener('submit', function (e) {
 
   container.insertBefore(balloon, container.firstChild);
 
-  // ✅ Submit the form after visual effect
-  // Optionally delay a tiny bit to let balloon show
+ 
   setTimeout(() => {
-    form.submit(); // manually submit the form to Diary_Saves.php
-  }, 100); // small delay (100ms) — adjust as needed
+    form.submit();
+  }, 100); 
 });
 
 function getRandomColor() {

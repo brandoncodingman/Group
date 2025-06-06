@@ -207,7 +207,7 @@ form button:hover {
       .intro-image {
         position: fixed;
         width: 100%;
-        height: 25%; /* Reduce the height to 25% */
+        height: 25%; 
         object-fit: cover;
         z-index: 2000;
         transition: transform 1.5s ease-in-out, opacity 1s ease;
@@ -280,7 +280,7 @@ form button:hover {
   border-radius: 5px;
 }
 
-/* Media query for responsiveness */
+/* Media  */
 @media (max-width: 768px) {
   #nav ul {
     display: none;
@@ -307,7 +307,6 @@ form button:hover {
   }
 }
 
-/* Add transition for smooth animation */
 #nav ul {
   transition: transform 0.3s ease;
 }
