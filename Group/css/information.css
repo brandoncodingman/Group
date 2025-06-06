@@ -185,6 +185,7 @@ body {
   margin-bottom: 10px;
 }
 
+/* Responsive tweaks */
 @media (max-width: 768px) {
   .president-container {
     flex-direction: column;
@@ -281,7 +282,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* media */
+/* Responsive tweaks */
 @media (max-width: 768px) {
   .company-container {
     flex-direction: column;
@@ -435,18 +436,57 @@ body {
   transform: translateX(0);
 }
 
-   footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 15px;
-        position: relative;
-        bottom: 0;
-        width: 100%;
-        letter-spacing: 0.2em;
-      }
+.employee-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 30px;
+  background-image: url('../img/informationbg.jfif');
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
+  border: 8px solid gold;
+  color: gold;
+  font-size: 1.5rem;
+  gap: 40px;
+  min-height: 100vh;
+  box-shadow: 0 0 20px gold;
+}
 
-       footer .iip{
-        font-size: 20px;
- letter-spacing: 0.2em;
-      }
+@media (max-width: 768px) {
+  .employee-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 15px;
+  }
+
+  #employee-image {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .employee-container .information-container {
+    font-size: 1.1rem;
+    padding: 15px;
+  }
+}
+
+#employee-image {
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  width: 450px;
+  height: auto;
+  border-radius: 20px;
+  border: 4px solid gold;
+  box-shadow: 0 0 15px gold;
+  filter: saturate(1);
+  filter: brightness(1);
+  transition: transform 1.3s ease-in-out;
+}
+
+#employee-image:hover {
+  transform: scale(1.06);
+  filter: saturate(1.2);
+  filter: brightness(1.2);
+}
