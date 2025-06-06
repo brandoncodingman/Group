@@ -118,7 +118,7 @@ if (!$loginStatus['logged_in']) {
 </div>
 
  <div class="footer-container">
-   <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created ❤️ with by Miyazaki, Matsura, Brandon.</span></footer>      <script src="./js/global-character-loader.js"></script>
+   <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created with ❤️ by Miyazaki, Matsura, Brandon.</span></footer>      <script src="./js/global-character-loader.js"></script>
  </div>
       <script src="./js/global-character-loader.js"></script>
   </body>

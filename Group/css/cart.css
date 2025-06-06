@@ -159,7 +159,7 @@ display: flex;
   letter-spacing: 0.2em;
   font-size: 70px;
   color: #FF69B4;
-  text-shadow: 6px 1px 2px rgba(0, 0, 0, 0.7);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   margin-top: 70px;
   border: 8px solid #FF69B4;  
   border-radius: 49% 65% 27% 46% / 49% 38% 54% 58%;  
@@ -169,7 +169,7 @@ display: flex;
 #shop-header:hover {
       background-color: rgba(247, 247, 247, 1.0);
     color: #FF69B4;
-  text-shadow: 6px 1px 2px rgba(0, 0, 0, 0.7);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   border-radius: 20% 66% 59% 25% / 16% 53% 19% 16% ;
 }
 
@@ -201,7 +201,7 @@ letter-spacing: 0.2em;
 
 .product:hover {
    color: rgb(0, 0, 0);
-  text-shadow: 6px 1px 2px rgba(0, 0, 0, 0.7);
+  /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); */
   border-radius: 20% 66% 59% 25% / 16% 53% 19% 16% ;
    background-color: rgba(247, 247, 247, 1.0);
 }
@@ -242,7 +242,7 @@ padding: 50px;
 .cart:hover{
        color: rgb(0, 0, 0);
        background-color: rgba(247, 247, 247, 1.0);
-  text-shadow: 6px 1px 2px rgba(0, 0, 0, 0.7);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   border-radius: 20% 66% 59% 25% / 16% 53% 19% 16% 
 }
 
