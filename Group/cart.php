@@ -18,12 +18,23 @@
   <img id="character" src="./img/default.png" alt="Character" />
 
   <header>
+    <?php include_once __DIR__ . '../includes/Header.php'; ?>
+
+   
+      <button id="music-toggle" class="music-btn">🔇 Music Off</button>
+         <?php if ($loginStatus['logged_in']): ?>
+    <?php endif; ?>
+
       <h1>Fluffy Planets</h1>
-        <button id="music-toggle" class="music-btn">🔇 Music Off</button>
-  </header>
+    <div class="user-info">
+        <span class="username">ようこそ、<?php echo htmlspecialchars($loginStatus['username']); ?>さん！</span>
+        <span class="points">ポイント: <?php echo $loginStatus['points']; ?></span>
+        <a href="actions/logout.php" class="logout-btn">ログアウト</a>
+    </div>
+    </header>
 
   <nav id="nav">
-         <ul>
+            <ul>
         <li><a href="./index.php">Home</a></li>
         <li><a href="./diary1.php">Diary</a></li>
         <li><a href="./character.php">Character</a></li>
@@ -70,11 +81,15 @@
   </section>
   </div>
 
-  <footer>&copy; 2025 Fluffy Planet</footer>
-    <script src="./js/app.js"></script>
+ <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created ❤️ with by Miyazaki, Matsura, Brandon.</span></footer>    <script src="./js/app.js"></script>
     <script src="./js/hamburger.js"></script>
 <script src="./js/cart.js"></script>
     <script src="./js/character.js"></script>
+       <script src="./js/app.js"></script>
+    <script src="./js/hamburger.js"></script>
+    <script src="./js/balloon.js"></script>
+    <script src="./js/firstview.js"></script>
+     <script src="./js/global-character-loader.js"></script>
 </body>
 
 </html>

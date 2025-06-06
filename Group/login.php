@@ -27,5 +27,10 @@
             </form>
         </div>
     </div>
+      <script src="./js/app.js"></script>
+    <script src="./js/hamburger.js"></script>
+    <script src="./js/balloon.js"></script>
+    <script src="./js/firstview.js"></script>
+     <script src="./js/global-character-loader.js"></script>
 </body>
 </html>

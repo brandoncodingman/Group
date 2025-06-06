@@ -26,6 +26,7 @@ if (!$loginStatus['logged_in']) {
       href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./css/app.css">
     <link rel="stylesheet" href="./css/character.css" />
      <link rel="stylesheet" href="./css/music.css" />
     <script src="./js/app.js" defer></script>
@@ -116,7 +117,9 @@ if (!$loginStatus['logged_in']) {
   </table>
 </div>
 
-    <footer>&copy; 2025 Fluffy Planets</footer>
+ <div class="footer-container">
+   <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created ❤️ with by Miyazaki, Matsura, Brandon.</span></footer>      <script src="./js/global-character-loader.js"></script>
+ </div>
       <script src="./js/global-character-loader.js"></script>
   </body>
 </html>

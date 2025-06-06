@@ -25,13 +25,14 @@
     </header>
 
     <nav id="nav">
-        <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./diary.php">Diary</a></li>
-            <li><a href="./character.php">Character</a></li>
-            <li><a href="./shop.php">Shop</a></li>
-            <li><a href="./cart.php">Cart</a></li>
-        </ul>
+             <ul>
+        <li><a href="./index.php">Home</a></li>
+        <li><a href="./diary1.php">Diary</a></li>
+        <li><a href="./character.php">Character</a></li>
+        <li><a href="./information.php">Info</a></li>
+        <li><a href="./shop.php">Shop</a></li>
+        <li><a href="./cart.php">Cart</a></li>
+      </ul>
     </nav>
     <div class="hamburger">
         <span class="bar"></span>
@@ -55,13 +56,17 @@
         </div>
     </div>
 
-    <footer>&copy; 2025 Fluffy Planets</footer>
-
+ <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created ❤️ with by Miyazaki, Matsura, Brandon.</span></footer>
 
     <!-- <script src="./js/app.js"></script> -->
     <script src="./js/Tumbler.js"></script>
     <script src="./js/hamburger.js"></script>
     <script src="./js/shop.js"></script>
+        <script src="./js/app.js"></script>
+    <script src="./js/hamburger.js"></script>
+    <script src="./js/balloon.js"></script>
+    <script src="./js/firstview.js"></script>
+     <script src="./js/global-character-loader.js"></script>
 </body>
 
 </html>
