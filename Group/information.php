@@ -134,8 +134,47 @@
         </div>
       </div>
 
-      <!-- company information start -->
+  <!-- employee start -->
+<div class="employee-container">
+  <h1 class="section-heading">Fluffy Planets Staff</h1>
+  <div class="image-container">
+    <img id="employee-image" src="./img/matsura.jfif" alt="employee" />
+  </div>
+  <div class="information-container">
+    <h2>🧑🖥️ Fluffy Planets’ 唯一無二の社員のご紹介</h2>
+    <div>
+      <h3>名前：</h3>
+      <p>Treeさん</p>
 
+      <h3>役職：</h3>
+      <p>ふわふわ惑星株式会社 唯一の社員・Official Fluff Wrangler（唯一の毛玉調教師）</p>
+
+      <h3>経歴：</h3>
+      <p>
+        つい最近IIP金沢職業訓練校を卒業し、晴れてFluffy Planets唯一の新入社員に。<br />
+        社長と副社長が日々お昼寝に専念する間、全ての仕事をChatGPTの力を借りつつこなすスーパー社員。<br />
+        「社長も副社長も忙しいので、ぼくが全部やります！」を合言葉に奮闘中。<br />
+        社訓：「社長と副社長のご機嫌取りは我が使命。あとはChatGPTが何とかしてくれる！」<br />
+        最近の悩みは、AIに負けそうなこと。<br />
+        ちなみに、まだIIP金沢時代からの伝説の遅いパソコンを愛用中。忍耐力が鍛えられます。  
+      </p>
+
+      <h3>趣味：</h3>
+      <ul>
+        <li>深夜にChatGPTと秘密会議</li>
+        <li>社長の居眠り中にコーヒーでこっそりエネルギーチャージ</li>
+        <li>「今日の毛玉指数」をAIに分析してもらう</li>
+        <li>社員唯一ゆえの孤独感を、ふわふわ毛玉で癒す</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- employee end -->
+
+
+
+
+      <!-- company information start -->
       <div class="company-container">
         <h1 class="section-heading">Fluffy Planets Information</h1>
         <div class="image-container">
@@ -181,7 +220,7 @@
       </div>
       
     </main>
-    
+
     <div class="footer-container">
  <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created ❤️ with by Miyazaki, Matsura, Brandon.</span></footer>
     </div>
