@@ -39,7 +39,6 @@ Class Session {
         }
     }
 
-    // New method to redirect non-logged-in users to login_register.php
     public static function requireLoginForAllPages(): void {
         if (!self::isLoggedIn()) {
             // Get the current page name

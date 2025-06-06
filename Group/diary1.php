@@ -12,7 +12,6 @@ $userId = Session::getUserId();
 $db = new DbManager();
 $conn = $db->getConnection();
 
-// Fetch diary entries for this user
 $stmt = $conn->prepare("SELECT date, title, content FROM diary WHERE user_id = :user_id ORDER BY date DESC");
 $stmt->execute([':user_id' => $userId]);
 $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -101,5 +100,6 @@ $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <script src="./js/hamburger.js"></script>
     <script src="./js/diary.js"></script>
     <script src="./js/character.js"></script>
+      <script src="./js/global-character-loader.js"></script>
   </body>
 </html>

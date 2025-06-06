@@ -185,7 +185,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* Responsive tweaks */
 @media (max-width: 768px) {
   .president-container {
     flex-direction: column;
@@ -282,7 +281,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* Responsive tweaks */
+/* media */
 @media (max-width: 768px) {
   .company-container {
     flex-direction: column;

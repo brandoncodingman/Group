@@ -1,3 +1,15 @@
+<?php
+require_once __DIR__ . '/core/Session.php';
+
+// Get login status and user info
+$loginStatus = Session::getLoginStatus();
+
+// Redirect 
+if (!$loginStatus['logged_in']) {
+    header('Location: login_register.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -75,7 +87,7 @@
         <div class="stars"></div>
         <div class="points">
           <p class="point-label">Stardust</p>
-          <p class="point-value">0</p>
+          <p class="point-value"><?php echo $loginStatus['points']; ?></p>
         </div>
         <div class="stars"></div>
       </div>
@@ -105,5 +117,6 @@
 </div>
 
     <footer>&copy; 2025 Fluffy Planets</footer>
+      <script src="./js/global-character-loader.js"></script>
   </body>
 </html>

@@ -41,8 +41,8 @@ try {
         throw new Exception("Failed to insert diary entry");
     }
 
-    // Update user points (+10)
-    $pointsToAdd = 10;
+    // Update user points (+100)
+    $pointsToAdd = 100;
     $stmt = $conn->prepare("
         UPDATE user_info SET points = points + :points WHERE id = :user_id
     ");

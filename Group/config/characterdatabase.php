@@ -9,17 +9,16 @@ $username = 'root';
 $password = '';  
 
 try {
-    // Create PDO connection
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
 
-    // Get all characters with their facts
     $query = "SELECT 
                 c.character_key,
                 c.name,
                 c.img_src,
+                c.points,
                 cf.fact
               FROM characters c
               LEFT JOIN character_facts cf ON c.character_key = cf.character_key
@@ -28,7 +27,6 @@ try {
     $stmt = $pdo->query($query);
     $results = $stmt->fetchAll();
 
-    // Group facts by character
     $characters = [];
     foreach ($results as $row) {
         $key = $row['character_key'];
@@ -37,6 +35,7 @@ try {
             $characters[$key] = [
                 'name' => $row['name'],
                 'imgSrc' => $row['img_src'],
+                'points' => (int)$row['points'], 
                 'facts' => []
             ];
         }
@@ -55,4 +54,3 @@ try {
     http_response_code(500);
     echo json_encode(['error' => 'An error occurred: ' . $e->getMessage()]);
 }
-?>
