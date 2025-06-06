@@ -59,7 +59,7 @@
 
     <footer>&copy; 2025 Fluffy Planets</footer>
 
-     <script src="./js/t-shirt.js"> </script>
+    <script src="./js/case_green.js"></script>
     <script src="./js/hamburger.js"></script>
     <script src="./js/shop.js"></script>
 </body>

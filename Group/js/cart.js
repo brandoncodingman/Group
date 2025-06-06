@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 // const leftbutton = document.querySelector('.left');
 // const rightbutton = document.querySelector('.right');

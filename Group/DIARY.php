@@ -44,12 +44,12 @@
         </div>
         <div class="detail">
 
-            <h1>Tシャツ</h1>
-            <p>￥3,630</p>
+            <h1>日記帳</h1>
+            <p>￥1100</p>
             <div class="count">
-                <img src="../Group/img/mainasu.svg" alt="">
-                <p>0</p>
-                <img src="../Group/img/plus.svg" alt="">
+                <img src="../Group/img/mainasu.svg" alt="マイナスボタン" id="decrease">
+                <p id="quantity">1</p>
+                <img src="../Group/img/plus.svg" alt="プラスボタン" id="increase">
             </div>
             <input type="submit" value="カートに入れる">
         </div>
@@ -59,7 +59,7 @@
 
 
     <!-- <script src="./js/app.js"></script> -->
-     <script src="./js/t-shirt.js"> </script>
+    <script src="./js/DIARY-shop.js"></script>
     <script src="./js/hamburger.js"></script>
     <script src="./js/shop.js"></script>
 </body>
