@@ -1,3 +1,12 @@
+<?php
+require_once "./core/DbManager.php";
+
+try{
+  $db = getDb();
+  $stt = prepare('INSERT INTO user_purchases(product,price,amount,total,data,user_id) ')
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,7 +54,7 @@
   </nav>
 
   <div class="hamburger">
-    <span class="bar"></span>
+    <span class="bar"></span>git 
     <span class="bar"></span>
     <span class="bar"></span>
   </div>
