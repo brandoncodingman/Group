@@ -9,20 +9,37 @@ function updateCharacterImage(imageUrl) {
   character.src = imageUrl;
 }
 
-
 document.addEventListener("keydown", function (e) {
+    // Get full document dimensions to allow movement across entire page
+    const documentHeight = Math.max(
+      document.body.scrollHeight, 
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight, 
+      document.documentElement.offsetHeight,
+      document.body.clientHeight,
+      document.documentElement.clientHeight
+    );
+    const documentWidth = Math.max(
+      document.body.scrollWidth,
+      document.documentElement.scrollWidth,
+      document.body.offsetWidth,
+      document.documentElement.offsetWidth,
+      document.body.clientWidth,
+      document.documentElement.clientWidth
+    );
+
     switch (e.key) {
-        case "ArrowUp":
+        case "w":
             posY = Math.max(0, posY - speed);
             break;
-        case "ArrowDown":
-            posY = Math.min(window.innerHeight - character.offsetHeight, posY + speed);
+        case "s":
+            posY = Math.min(documentHeight - character.offsetHeight, posY + speed);
             break;
-        case "ArrowLeft":
+        case "a":
             posX = Math.max(0, posX - speed);
             break;
-        case "ArrowRight":
-            posX = Math.min(window.innerWidth - character.offsetWidth, posX + speed);
+        case "d":
+            posX = Math.min(documentWidth - character.offsetWidth, posX + speed);
             break;
     }
     
@@ -30,8 +47,8 @@ document.addEventListener("keydown", function (e) {
     character.style.left = posX + "px";
 });
 
-
-updateCharacterImage('./img/default.png');  
+updateCharacterImage('./img/default.png');
+ 
 
 
 
