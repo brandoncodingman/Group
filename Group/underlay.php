@@ -72,8 +72,9 @@
             <a href="./shop.php"><button id="back_shop">一覧へ戻る</button></a>
         </div>
     </div>
-    <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created ❤️ with by Miyazaki, Matsura, Brandon.</span></footer>
-    <script src="./js/underlay.js"></script>
+ <div class="footer-container">
+ <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created with ❤️ by Miyazaki, Matsura, Brandon.</span></footer>
+    </div>    <script src="./js/underlay.js"></script>
     <script src="./js/hamburger.js"></script>
     <script src="./js/shop.js"></script>
     <script src="./js/app.js"></script>

@@ -26,25 +26,28 @@ $loginStatus = Session::getLoginStatus();
     <script src="./js/music.js" defer></script>
   </head>
   <body>
-    
-    <video id="video" style="display: none;" src="./img/onload.mp4"></video>
+    <video id="video" style="display: none" src="./img/onload.mp4"></video>
     <!-- Character -->
     <img id="character" src="./img/default.png" alt="Character" />
 
-  <header>
-    <?php include_once __DIR__ . '../includes/Header.php'; ?>
+    <header>
+      <?php include_once __DIR__ . '../includes/Header.php'; ?>
 
-   
       <button id="music-toggle" class="music-btn">🔇 Music Off</button>
-         <?php if ($loginStatus['logged_in']): ?>
-    <?php endif; ?>
+      <?php if ($loginStatus['logged_in']): ?>
+      <?php endif; ?>
 
       <h1>Fluffy Planets</h1>
-    <div class="user-info">
-        <span class="username">ようこそ、<?php echo htmlspecialchars($loginStatus['username']); ?>さん！</span>
-        <span class="points">ポイント: <?php echo $loginStatus['points']; ?></span>
+      <div class="user-info">
+        <span class="username"
+          >ようこそ、<?php echo htmlspecialchars($loginStatus['username']); ?>さん！</span
+        >
+        <span class="points"
+          >ポイント:
+          <?php echo $loginStatus['points']; ?></span
+        >
         <a href="actions/logout.php" class="logout-btn">ログアウト</a>
-    </div>
+      </div>
     </header>
 
     <nav id="nav">
@@ -76,30 +79,21 @@ $loginStatus = Session::getLoginStatus();
     <div class="balloon-container">
       <div class="balloon">
         <a href="./shop.php"
-          ><img
-            src="./img/clothingvideo.jpg"
-            alt="shop"
-          />
+          ><img src="./img/clothingvideo.jpg" alt="shop" />
           <figcaption>Shop</figcaption></a
         >
       </div>
       <div class="balloon">
         <a href="./diary1.php"
-          ><img
-            src="./img/diarybook.jpg"
-            alt="diary"
-          />
+          ><img src="./img/diarybook.jpg" alt="diary" />
           <figcaption>Diary</figcaption></a
         >
       </div>
       <div class="balloon">
         <a href="./character.php"
-          ><img
-            src="./img/earth-nobg.png"
-            alt="character"
-          />
+          ><img src="./img/earth-nobg.png" alt="character" />
 
-          <figcaption>Character</figcaption></a
+          <figcaption>Characters</figcaption></a
         >
       </div>
     </div>
@@ -108,61 +102,67 @@ $loginStatus = Session::getLoginStatus();
       <table>
         <thead>
           <tr>
-            <th>Page</th>
-            <th>Description</th>
+            <th class="index-title">ページ</th>
+            <th class="index-title">説明</th>
           </tr>
         </thead>
         <tbody>
           <tr onclick="toggleDetails(this)">
-            <td>Diary Page</td>
-            <td>Track your daily progress and story events.</td>
+            <td>Diary ページ</td>
+            <td>日記を書いてスターダストポイントを獲得しましょう。</td>
           </tr>
           <tr class="details">
-            <td colspan="2">
-              The diary logs your daily activities, completed quests, and
-              unlockable lore.
-            </td>
+            <td colspan="2">日記のふきだしはクリックで変化します。</td>
           </tr>
           <tr onclick="toggleDetails(this)">
-            <td>Character Page</td>
-            <td>View and manage unlocked characters.</td>
+            <td>Characters ページ</td>
+            <td>解除済みのキャラクターを閲覧・管理できます。</td>
           </tr>
           <tr class="details">
-            <td colspan="2">
-              You can level up, equip items, and view character bios here.
-            </td>
+            <td colspan="2">ここでキャラクターの詳細を確認できます。</td>
           </tr>
           <tr onclick="toggleDetails(this)">
-            <td>Shop Page</td>
-            <td>Buy characters and items using Stardust points.</td>
+            <td>Shop ページ</td>
+            <td>Fluffy Planet公式グッズを購入できます。</td>
           </tr>
           <tr class="details">
-            <td colspan="2">
-              Access various items, character skins, and exclusive bundles using
-              Stardust.
-            </td>
+            <td colspan="2">季節限定のセール情報もお見逃しなく。</td>
           </tr>
           <tr onclick="toggleDetails(this)">
             <td>Stardust Points</td>
-            <td>
-              Earned through gameplay achievements and daily login rewards.
-            </td>
+            <td>登録、日記の記入、ショップ購入で獲得できます。</td>
           </tr>
           <tr class="details">
             <td colspan="2">
-              You can earn Stardust by completing quests, defeating bosses, and
-              participating in events.
+              スターダストポイントはナビバーかキャラクターページで確認できます。
             </td>
           </tr>
         </tbody>
       </table>
     </div>
 
- <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created with ❤️ by Miyazaki, Matsura, Brandon.</span></footer>
+    <div class="youtube-container">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/OT1lfeIDoj4?si=bofpX6KokDLCCiNJ"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <footer>
+      &copy; 2025 Fluffy Planets <br /><span class="iip"
+        >Created with ❤️ by Miyazaki, Matsura, Brandon.</span
+      >
+    </footer>
     <script src="./js/app.js"></script>
     <script src="./js/hamburger.js"></script>
     <script src="./js/balloon.js"></script>
     <script src="./js/firstview.js"></script>
-     <script src="./js/global-character-loader.js"></script>
+    <script src="./js/global-character-loader.js"></script>
   </body>
 </html>
