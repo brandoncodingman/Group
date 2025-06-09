@@ -1,11 +1,5 @@
 <?php
 require_once "./core/DbManager.php";
-
-try{
-  $db = getDb();
-  $stt = prepare('INSERT INTO user_purchases(product,price,amount,total,data,user_id) ')
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
