@@ -7,11 +7,11 @@
   flex-wrap: wrap;
   gap: 20px;
   width: 100%;
-    background-image: url('https://i.imgur.com/uTp5Ljzg.jpg');
+ 
 }
 
 .balloon {
-  width: 350px;
+  width: 450px;
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,18 @@
 .balloon img {
   width: 100%;
   height: auto;
-  max-width: 120px;
+  max-width: 220px;
+}
+
+.balloon img:hover {
+  filter: saturate(1.2);
+  filter: brightness(1.2);
+  filter: contrast(1.2);
+}
+
+/* select first and second child and round edges */
+.balloon img:first-child, .balloon:nth-child(2) {
+  border-radius: 25px;
 }
 
 .balloon a {
@@ -37,7 +48,7 @@
 figcaption {
   font-size: 39px;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 20px;
   color: #333;
     font-family: "Bangers", system-ui;
   font-weight: bold;
