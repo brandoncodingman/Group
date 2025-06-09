@@ -82,6 +82,13 @@
             </a>
             <p class="price">￥2,530</p>
         </div>
+        <div class="plate">
+            <a href="./plate.php">
+                <img src="../Group/img/plate.png" alt="">
+                <p class="name">お皿</p>
+            </a>
+            <p class="price">￥1,650</p>
+        </div>
         <div class="Tumbler">
             <a href="./Tumbler.php">
                 <img src="../Group/img/Tumbler.png" alt="">
