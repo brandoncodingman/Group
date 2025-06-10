@@ -1,9 +1,72 @@
 <?php
 require_once __DIR__ . '/core/Session.php';
+require_once __DIR__ . '/core/DbManager.php';
 
 Session::requireLoginForAllPages();
 
 $loginStatus = Session::getLoginStatus();
+$errorMessage = '';
+$successMessage = '';
+
+// REPLACE THIS ENTIRE SECTION WITH THE NEW CODE
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['items'])) {
+    try {
+        $dbManager = new DbManager();
+        $conn = $dbManager->getConnection();
+        
+        // Get user ID from session
+        $userId = Session::getUserId();
+        
+        if (!$userId) {
+            throw new Exception('User not logged in');
+        }
+        
+        // Prepare the insert statement for purchases
+        $stmt = $conn->prepare("INSERT INTO user_purchases (product, price, amount, total, date, user_id) VALUES (?, ?, ?, ?, NOW(), ?)");
+        
+        $conn->beginTransaction();
+        
+        $grandTotal = 0;
+        
+        // Process each item in the cart and calculate grand total
+        foreach ($_POST['items'] as $item) {
+            $product = $item['item'];
+            $price = (int)$item['item-price'];
+            $amount = (int)$item['item-quantity'];
+            $total = (int)$item['item-totalPrice'];
+            
+            // Add to grand total
+            $grandTotal += $total;
+            
+            // Execute the insert for each item
+            $stmt->execute([$product, $price, $amount, $total, $userId]);
+        }
+        
+        // Update user points by adding the grand total (1 yen = 1 point)
+        $updatePointsStmt = $conn->prepare("UPDATE user_info SET points = points + ? WHERE id = ?");
+        $updatePointsStmt->execute([$grandTotal, $userId]);
+        
+        // Update session points to reflect the new total
+        $getPointsStmt = $conn->prepare("SELECT points FROM user_info WHERE id = ?");
+        $getPointsStmt->execute([$userId]);
+        $newPointsTotal = $getPointsStmt->fetchColumn();
+        
+        // Update session with new points
+        Session::updatePoints($newPointsTotal);
+        
+        $conn->commit();
+        $successMessage = "ご購入ありがとうございます！注文が正常に処理され、{$grandTotal}ポイントが追加されました。";
+        
+    } catch (Exception $e) {
+        if (isset($conn)) {
+            $conn->rollBack();
+        }
+        $errorMessage = '注文の処理中にエラーが発生しました: ' . $e->getMessage();
+    }
+}
+// END OF REPLACEMENT SECTION
+
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +126,7 @@ $loginStatus = Session::getLoginStatus();
       <span class="bar"></span>
     </div>
 
-    <!-- Only show error messages, success is handled by JavaScript -->
+    <!-- Show error and success messages -->
     <?php if ($errorMessage): ?>
     <div
       style="
@@ -82,8 +145,22 @@ $loginStatus = Session::getLoginStatus();
     <?php endif; ?>
 
     <?php if ($successMessage): ?>
+    <div
+      style="
+        background: #f9f9f9;
+        padding: 15px;
+        margin: 10px;
+        border-radius: 5px;
+        border-left: 4px solid #4caf50;
+      "
+    >
+      <div style="color: #4caf50; font-weight: bold">
+        ✓
+        <?php echo htmlspecialchars($successMessage); ?>
+      </div>
+    </div>
     <script>
-      // Clear cart after successful purchase and show success message
+      // Clear cart after successful purchase
       document.addEventListener("DOMContentLoaded", function () {
         if (
           window.cartFunctions &&
@@ -91,7 +168,6 @@ $loginStatus = Session::getLoginStatus();
         ) {
           window.cartFunctions.clearCartAfterPurchase();
         }
-        alert("<?php echo addslashes($successMessage); ?>");
       });
     </script>
     <?php endif; ?>
@@ -108,14 +184,14 @@ $loginStatus = Session::getLoginStatus();
           </div>
           <div class="product">
             <h3>Cosmic Hamster</h3>
-            <p>￥115</p>
+            <p>￥15</p>
             <button onclick="addToCart('Cosmic Hamster', 15)">
               Add to Cart
             </button>
           </div>
           <div class="product">
             <h3>Alien Cat</h3>
-            <p>￥120</p>
+            <p>￥20</p>
             <button onclick="addToCart('Alien Cat', 20)">Add to Cart</button>
           </div>
         </div>
