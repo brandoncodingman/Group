@@ -114,6 +114,6 @@ if (addProductBtn) {
 
         addToCart("plate", 1650, quantity);
 
-        window.location.href = 'http://localhost/Group/Group/cart.php';
+        window.location.href = 'http://brandoncodingman.zombie.jp/Group/Group/cart.php';
     });
 }

@@ -4,9 +4,9 @@ class DbManager {
     private PDO $conn;
 
     public function __construct() {
-        $dsn = 'mysql:dbname=fluffy_planets;host=127.0.0.1;charset=utf8';
-        $user = 'root';
-        $password = '';
+        $dsn = 'mysql:dbname=LAA1651812-fluffy;host=mysql320.phy.lolipop.lan;charset=utf8';
+        $user = 'LAA1651812';
+        $password = 'root';
 
         try {
             $this->conn = new PDO($dsn, $user, $password);
