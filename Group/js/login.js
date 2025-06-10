@@ -44,6 +44,3 @@ function play(){
 
 }
 
-
-const heaven 
-heaven.addEventListener('click', play());

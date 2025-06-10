@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../core/DBManager.php';
+require_once __DIR__ . '/../core/DbManager.php';
 require_once __DIR__ . '/../core/Session.php';
 
 Class Register {
@@ -49,3 +49,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $register = new Register($dbManager);
     $register->registerUser($_POST['username'], $_POST['password']);
 }
+

@@ -139,6 +139,6 @@ if (addProductBtn) {
 
         addToCart("t-shirt", 3630, quantity);
 
-        window.location.href = 'http://localhost/Group/Group/cart.php';
+        window.location.href = 'http://brandoncodingman.zombie.jp/Group/Group/cart.php';
     });
 }

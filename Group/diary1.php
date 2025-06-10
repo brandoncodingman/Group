@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/core/Session.php';
-require_once __DIR__ . '/core/DBManager.php';
+require_once __DIR__ . '/core/DbManager.php';
 
 // Make sure user is logged in or redirect
 Session::requireLoginForAllPages();
