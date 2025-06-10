@@ -1,101 +1,84 @@
 <?php
-require_once "./core/DbManager.php";
-
-// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['items'])) {
-//     try {
-//         $dbManager = new DbManager();
-//         $pdo = $dbManager->getConnection();
-
-//         $pdo->beginTransaction();
-
-//         foreach ($_POST['items'] as $item) {
-//             $stmt = $pdo->prepare("INSERT INTO user_purchases (product, price,amount,total,date,user_id)
-//              VALUES (:item, :item-price,:item-quantity,:item-totalPrice,'2025-06-09','23')");
-//             $stmt->execute([
-//                 ':item' => $item['item'],
-//                 ':item-price' => $item['item-price'],
-//                 ':item-quantity' => $item['item-quantity'],
-//                 ':item-totalPrice' => $item['item-totalPrice'],
-//             ]);
-//         }
-
-//         $pdo->commit();
-//         echo "購入情報を保存しました！";
-
-//     } catch (PDOException $e) {
-//         if ($pdo->inTransaction()) $pdo->rollBack();
-//         die("エラー: " . $e->getMessage());
-//     }
-// }
+session_start(); 
 
 require_once "./core/DbManager.php";
+require_once __DIR__ . '/core/Session.php';
+
+Session::requireLoginForAllPages();
+
+$loginStatus = Session::getLoginStatus();
+
+$successMessage = '';
+$errorMessage = '';
 
 // POSTデータの処理
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['items']) && !empty($_POST['items'])) {
-    try {
-        $dbManager = new DbManager();
-        $pdo = $dbManager->getConnection();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['items']) && !empty($_POST['items'])) {
+        try {
+            $dbManager = new DbManager();
+            $pdo = $dbManager->getConnection();
+            $pdo->beginTransaction();
 
-        $pdo->beginTransaction();
-
-        // 現在の日付を取得
-        $currentDate = date('Y-m-d');
-        
-        // ユーザーIDを適切に取得（セッションから取得することを推奨）
-        // session_start();
-        // $userId = $_SESSION['user_id'] ?? null;
-        $userId = 23; // 仮のユーザーID（実際はセッションから取得）
-
-        if (!$userId) {
-            throw new Exception("ユーザーがログインしていません");
-        }
-
-        foreach ($_POST['items'] as $item) {
-            // データの検証
-            if (empty($item['item']) || !isset($item['item-price']) || !isset($item['item-quantity'])) {
-                throw new Exception("必要なデータが不足しています");
-            }
-
-            $stmt = $pdo->prepare("INSERT INTO user_purchases (product, price, amount, total, date, user_id) 
-                                 VALUES (:product, :price, :amount, :total, :date, :user_id)");
+            // 現在の日付を取得
+            $currentDate = date('Y-m-d');
             
-            $result = $stmt->execute([
-                ':product' => $item['item'],
-                ':price' => floatval($item['item-price']),
-                ':amount' => intval($item['item-quantity']),
-                ':total' => floatval($item['item-totalPrice']),
-                ':date' => $currentDate,
-                ':user_id' => $userId
-            ]);
+            // ユーザーIDを適切に取得（セッションから取得することを推奨）
+            $userId = $_SESSION['user_id'] ?? null;
 
-            if (!$result) {
-                throw new Exception("データベースへの挿入に失敗しました");
+            if (!$userId) {
+                throw new Exception("ユーザーがログインしていません");
             }
-        }
 
-        $pdo->commit();
-        
-        // 成功メッセージをセッションに保存してリダイレクト
-        // $_SESSION['success_message'] = "購入情報を保存しました！";
-        $successMessage = "購入情報を保存しました！";
+            $insertCount = 0;
+            foreach ($_POST['items'] as $index => $item) {
+                // データの検証
+                if (empty($item['item']) || !isset($item['item-price']) || !isset($item['item-quantity'])) {
+                    throw new Exception("必要なデータが不足しています");
+                }
 
-    } catch (PDOException $e) {
-        if ($pdo && $pdo->inTransaction()) {
-            $pdo->rollBack();
+                $stmt = $pdo->prepare("INSERT INTO user_purchases (product, price, amount, total, date, user_id) 
+                                     VALUES (:product, :price, :amount, :total, :date, :user_id)");
+                
+                $insertData = [
+                    ':product' => $item['item'],
+                    ':price' => floatval($item['item-price']),
+                    ':amount' => intval($item['item-quantity']),
+                    ':total' => floatval($item['item-totalPrice']),
+                    ':date' => $currentDate,
+                    ':user_id' => $userId
+                ];
+                
+                $result = $stmt->execute($insertData);
+                
+                if (!$result) {
+                    throw new Exception("データベースへの挿入に失敗しました");
+                }
+                
+                $insertCount++;
+            }
+
+            $pdo->commit();
+            $successMessage = "購入情報を保存しました！($insertCount 件の商品)";
+
+        } catch (PDOException $e) {
+            if (isset($pdo) && $pdo->inTransaction()) {
+                $pdo->rollBack();
+            }
+            $errorMessage = "データベースエラー: " . $e->getMessage();
+            error_log($errorMessage);
+        } catch (Exception $e) {
+            if (isset($pdo) && $pdo->inTransaction()) {
+                $pdo->rollBack();
+            }
+            $errorMessage = $e->getMessage();
+            error_log($errorMessage);
         }
-        $errorMessage = "データベースエラー: " . $e->getMessage();
-        error_log($errorMessage);
-        $errorMessage = "購入処理中にエラーが発生しました";
-        
-    } catch (Exception $e) {
-        if ($pdo && $pdo->inTransaction()) {
-            $pdo->rollBack();
-        }
-        $errorMessage = $e->getMessage();
-        error_log($errorMessage);
+    } else {
+        $errorMessage = "カートにアイテムがありません";
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -118,7 +101,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['items']) && !empty($_
 
   <header>
     <?php include_once __DIR__ . '../includes/Header.php'; ?>
-
 
     <button id="music-toggle" class="music-btn">🔇 Music Off</button>
     <?php if ($loginStatus['logged_in']): ?>
@@ -144,10 +126,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['items']) && !empty($_
   </nav>
 
   <div class="hamburger">
-    <span class="bar"></span>git
+    <span class="bar"></span>
     <span class="bar"></span>
     <span class="bar"></span>
   </div>
+
+  <!-- Only show error messages, success is handled by JavaScript -->
+  <?php if ($errorMessage): ?>
+  <div style="background: #f9f9f9; padding: 15px; margin: 10px; border-radius: 5px; border-left: 4px solid #f44336;">
+    <div style="color: #f44336; font-weight: bold;">
+      ✗ <?php echo htmlspecialchars($errorMessage); ?>
+    </div>
+  </div>
+  <?php endif; ?>
+  
+  <?php if ($successMessage): ?>
+  <script>
+    // Clear cart after successful purchase and show success message
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.cartFunctions && window.cartFunctions.clearCartAfterPurchase) {
+        window.cartFunctions.clearCartAfterPurchase();
+      }
+      alert('<?php echo addslashes($successMessage); ?>');
+    });
+  </script>
+  <?php endif; ?>
 
   <!-- Wrap your page content -->
   <div class="page-wrapper">
@@ -156,34 +159,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['items']) && !empty($_
       <div class="products">
         <div class="product">
           <h3>Fluffy Bear</h3>
-          <p>$10</p>
+          <p>￥10</p>
           <button onclick="addToCart('Fluffy Bear', 10)">Add to Cart</button>
         </div>
         <div class="product">
           <h3>Cosmic Hamster</h3>
-          <p>$15</p>
+          <p>￥15</p>
           <button onclick="addToCart('Cosmic Hamster', 15)">Add to Cart</button>
         </div>
         <div class="product">
           <h3>Alien Cat</h3>
-          <p>$20</p>
+          <p>￥20</p>
           <button onclick="addToCart('Alien Cat', 20)">Add to Cart</button>
         </div>
       </div>
     </section>
 
-    <!-- <section class="cart">
-    <h2>Shopping Cart</h2>
-    <ul id="cart-items"></ul>
-    <p><strong>Total: $<span id="total">0</span></strong></p>
-    <button onclick="checkout()">Checkout</button>
-  </section> -->
     <form class="cart" action="" method="POST">
       <h2>Shopping Cart</h2>
       <div id="cart-items"></div>
-      <p><strong>Total: $<span id="total">0</span></strong></p>
-      <input type="submit" value="Checkout" onclick="checkout()">
-      <!-- <button onclick="checkout()">Checkout</button> -->
+      <p><strong>Total: ￥<span id="total">0</span></strong></p>
+      <input type="submit" value="Checkout" id="checkout-btn">
     </form>
   </div>
 

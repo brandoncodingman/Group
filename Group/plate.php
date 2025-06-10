@@ -1,3 +1,12 @@
+<?php
+require_once __DIR__ . '/core/Session.php';
+
+Session::requireLoginForAllPages();
+
+$loginStatus = Session::getLoginStatus();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
