@@ -5,24 +5,36 @@ try {
     $dbManager = new DbManager();
     $pdo = $dbManager->getConnection();
     
-    // セッションからユーザーIDを取得（必要に応じてコメントアウトを解除）
+    // セッションからユーザーIDを取得
     $userId = Session::getUserId();
     
+    // デバッグ用：ユーザーIDが取得できているか確認
+    if (!$userId) {
+        throw new Exception("ユーザーIDが取得できません。ログインしてください。");
+    }
+    
     // 購入情報を取得（最新順）
-    $stmt = $pdo->prepare('SELECT PRODUCT ,PRICE ,AMOUNT ,AMOUNT ,TOTAL. DATE FROM user_purchases WHERE id = :user_id  ORDER BY date DESC');
-    $stmt->execute(
-       [ ':user_id' => $userId]
-    );
+    // 修正点：列名の重複を削除、ピリオドをカンマに修正
+    $stmt = $pdo->prepare('SELECT PRODUCT, PRICE, AMOUNT, TOTAL, DATE FROM user_purchases WHERE user_id = :user_id ORDER BY date DESC');
+    $stmt->execute([':user_id' => $userId]);
     $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     // デバッグ用：取得したデータの構造を確認
     if (!empty($orders)) {
         $sampleOrder = $orders[0];
         $availableColumns = array_keys($sampleOrder);
+    } else {
+        // データがない場合のデバッグ情報
+        $debugStmt = $pdo->prepare('SELECT COUNT(*) as count FROM user_purchases WHERE user_id = :user_id');
+        $debugStmt->execute([':user_id' => $userId]);
+        $debugResult = $debugStmt->fetch(PDO::FETCH_ASSOC);
+        $debugMessage = "ユーザーID {$userId} の購入履歴件数: " . $debugResult['count'];
     }
     
 } catch (PDOException $e) {
     $errorMessage = "データベースエラー: " . $e->getMessage();
+} catch (Exception $e) {
+    $errorMessage = "エラー: " . $e->getMessage();
 }
 ?>
 
@@ -100,15 +112,20 @@ try {
             font-style: italic;
             padding: 40px;
         }
-        .status {
-            padding: 4px 8px;
-            border-radius: 12px;
+        .debug-info {
+            background-color: #e7f3ff; 
+            padding: 10px; 
+            margin-bottom: 20px; 
+            border-radius: 5px; 
             font-size: 12px;
-            font-weight: bold;
         }
-        .status-completed { background-color: #d4edda; color: #155724; }
-        .status-pending { background-color: #fff3cd; color: #856404; }
-        .status-cancelled { background-color: #f8d7da; color: #721c24; }
+        .error-message {
+            background-color: #f8d7da; 
+            color: #721c24; 
+            padding: 15px; 
+            border-radius: 5px; 
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -116,16 +133,24 @@ try {
         <h1>購入履歴一覧</h1>
         
         <?php if (isset($errorMessage)): ?>
-            <div style="background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+            <div class="error-message">
                 <?= htmlspecialchars($errorMessage) ?>
             </div>
-        <?php elseif (empty($orders)): ?>
+        <?php endif; ?>
+        
+        <?php if (isset($debugMessage)): ?>
+            <div class="debug-info">
+                <strong>デバッグ情報:</strong> <?= htmlspecialchars($debugMessage) ?>
+            </div>
+        <?php endif; ?>
+        
+        <?php if (empty($orders) && !isset($errorMessage)): ?>
             <div class="no-orders">
                 購入履歴がありません。
             </div>
-        <?php else: ?>
+        <?php elseif (!empty($orders)): ?>
             <!-- デバッグ用：利用可能なカラム表示 -->
-            <div style="background-color: #e7f3ff; padding: 10px; margin-bottom: 20px; border-radius: 5px; font-size: 12px;">
+            <div class="debug-info">
                 <strong>データベースのカラム:</strong> <?= implode(', ', $availableColumns) ?>
             </div>
             
@@ -144,14 +169,14 @@ try {
                             
                             <?php if (isset($order['date'])): ?>
                                 <div class="order-date">
-                                    <?= date('Y年m月d日 ', strtotime($order['date'])) ?>
+                                    <?= date('Y年m月d日 H:i', strtotime($order['date'])) ?>
                                 </div>
                             <?php endif; ?>
                         </div>
                         
-                        <?php if (isset($order['total_amount']) || isset($order['amount']) || isset($order['price'])): ?>
+                        <?php if (isset($order['total']) || isset($order['amount']) || isset($order['price'])): ?>
                         <div class="order-total">
-                            ¥<?= number_format($order['total_amount'] ?? $order['amount'] ?? $order['price'] ?? 0) ?>
+                            ¥<?= number_format($order['total'] ?? $order['amount'] ?? $order['price'] ?? 0) ?>
                         </div>
                         <?php endif; ?>
                     </div>
@@ -163,7 +188,7 @@ try {
                                     <div class="detail-label"><?= htmlspecialchars($key) ?></div>
                                     <div class="detail-value">
                                         <?php if (in_array($key, ['date', 'created_at', 'updated_at'])): ?>
-                                            <?= date('Y-m-d ', strtotime($value)) ?>
+                                            <?= date('Y-m-d H:i:s', strtotime($value)) ?>
                                         <?php elseif (in_array($key, ['amount', 'price', 'total_amount', 'total'])): ?>
                                             ¥<?= number_format($value) ?>
                                         <?php else: ?>
