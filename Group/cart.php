@@ -1,5 +1,100 @@
 <?php
 require_once "./core/DbManager.php";
+
+// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['items'])) {
+//     try {
+//         $dbManager = new DbManager();
+//         $pdo = $dbManager->getConnection();
+
+//         $pdo->beginTransaction();
+
+//         foreach ($_POST['items'] as $item) {
+//             $stmt = $pdo->prepare("INSERT INTO user_purchases (product, price,amount,total,date,user_id)
+//              VALUES (:item, :item-price,:item-quantity,:item-totalPrice,'2025-06-09','23')");
+//             $stmt->execute([
+//                 ':item' => $item['item'],
+//                 ':item-price' => $item['item-price'],
+//                 ':item-quantity' => $item['item-quantity'],
+//                 ':item-totalPrice' => $item['item-totalPrice'],
+//             ]);
+//         }
+
+//         $pdo->commit();
+//         echo "購入情報を保存しました！";
+
+//     } catch (PDOException $e) {
+//         if ($pdo->inTransaction()) $pdo->rollBack();
+//         die("エラー: " . $e->getMessage());
+//     }
+// }
+
+require_once "./core/DbManager.php";
+
+// POSTデータの処理
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['items']) && !empty($_POST['items'])) {
+    try {
+        $dbManager = new DbManager();
+        $pdo = $dbManager->getConnection();
+
+        $pdo->beginTransaction();
+
+        // 現在の日付を取得
+        $currentDate = date('Y-m-d');
+        
+        // ユーザーIDを適切に取得（セッションから取得することを推奨）
+        // session_start();
+        // $userId = $_SESSION['user_id'] ?? null;
+        $userId = 23; // 仮のユーザーID（実際はセッションから取得）
+
+        if (!$userId) {
+            throw new Exception("ユーザーがログインしていません");
+        }
+
+        foreach ($_POST['items'] as $item) {
+            // データの検証
+            if (empty($item['item']) || !isset($item['item-price']) || !isset($item['item-quantity'])) {
+                throw new Exception("必要なデータが不足しています");
+            }
+
+            $stmt = $pdo->prepare("INSERT INTO user_purchases (product, price, amount, total, date, user_id) 
+                                 VALUES (:product, :price, :amount, :total, :date, :user_id)");
+            
+            $result = $stmt->execute([
+                ':product' => $item['item'],
+                ':price' => floatval($item['item-price']),
+                ':amount' => intval($item['item-quantity']),
+                ':total' => floatval($item['item-totalPrice']),
+                ':date' => $currentDate,
+                ':user_id' => $userId
+            ]);
+
+            if (!$result) {
+                throw new Exception("データベースへの挿入に失敗しました");
+            }
+        }
+
+        $pdo->commit();
+        
+        // 成功メッセージをセッションに保存してリダイレクト
+        // $_SESSION['success_message'] = "購入情報を保存しました！";
+        $successMessage = "購入情報を保存しました！";
+
+    } catch (PDOException $e) {
+        if ($pdo && $pdo->inTransaction()) {
+            $pdo->rollBack();
+        }
+        $errorMessage = "データベースエラー: " . $e->getMessage();
+        error_log($errorMessage);
+        $errorMessage = "購入処理中にエラーが発生しました";
+        
+    } catch (Exception $e) {
+        if ($pdo && $pdo->inTransaction()) {
+            $pdo->rollBack();
+        }
+        $errorMessage = $e->getMessage();
+        error_log($errorMessage);
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
