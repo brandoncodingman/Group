@@ -6,11 +6,13 @@ try {
     $pdo = $dbManager->getConnection();
     
     // セッションからユーザーIDを取得（必要に応じてコメントアウトを解除）
-    // $userId = Session::getUserId();
+    $userId = Session::getUserId();
     
     // 購入情報を取得（最新順）
-    $stmt = $pdo->prepare('SELECT * FROM user_purchases ORDER BY date DESC');
-    $stmt->execute();
+    $stmt = $pdo->prepare('SELECT PRODUCT ,PRICE ,AMOUNT ,AMOUNT ,TOTAL. DATE FROM user_purchases WHERE id = :user_id  ORDER BY date DESC');
+    $stmt->execute(
+       [ ':user_id' => $userId]
+    );
     $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     // デバッグ用：取得したデータの構造を確認
@@ -142,7 +144,7 @@ try {
                             
                             <?php if (isset($order['date'])): ?>
                                 <div class="order-date">
-                                    <?= date('Y年m月d日 H:i:s', strtotime($order['date'])) ?>
+                                    <?= date('Y年m月d日 ', strtotime($order['date'])) ?>
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -161,7 +163,7 @@ try {
                                     <div class="detail-label"><?= htmlspecialchars($key) ?></div>
                                     <div class="detail-value">
                                         <?php if (in_array($key, ['date', 'created_at', 'updated_at'])): ?>
-                                            <?= date('Y-m-d H:i:s', strtotime($value)) ?>
+                                            <?= date('Y-m-d ', strtotime($value)) ?>
                                         <?php elseif (in_array($key, ['amount', 'price', 'total_amount', 'total'])): ?>
                                             ¥<?= number_format($value) ?>
                                         <?php else: ?>
