@@ -63,6 +63,9 @@ $loginStatus = Session::getLoginStatus();
     </div>
 
     <div class="shop">
+        <a href="./Purchase history.php">
+            <p>注文履歴</p>
+        </a>
         <div class="tshirt_container">
             <div class="t-shirt">
                 <button class="left"><</button>
