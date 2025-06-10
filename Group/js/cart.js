@@ -114,7 +114,7 @@ function updateCartDisplay() {
                 itemDiv.style.margin = '10px 0';
                 itemDiv.style.borderRadius = '5px';
                 
-                // Create visible content - FIXED: Changed $ to ￥
+                // Create visible content
                 const itemInfo = document.createElement('div');
                 itemInfo.className = 'item-info';
                 itemInfo.innerHTML = `
@@ -240,12 +240,12 @@ function checkout(event) {
         return false;
     }
 
-    // Create order summary for confirmation - FIXED: Changed to ￥
+    // Create order summary for confirmation
     let orderSummary = "ご注文内容:\n";
     cart.forEach(item => {
-        orderSummary += `${item.item} × ${item.quantity} = ￥${item.totalPrice}\n`;
+        orderSummary += `${item.item} × ${item.quantity} = ${item.totalPrice}\n`;
     });
-    orderSummary += `\n合計: ￥${total}`;
+    orderSummary += `\n合計: ${total}`;
 
     // Confirm purchase
     if (confirm(orderSummary + "\n\nこの内容で注文しますか？")) {
