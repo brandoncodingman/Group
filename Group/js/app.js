@@ -9,20 +9,37 @@ function updateCharacterImage(imageUrl) {
   character.src = imageUrl;
 }
 
-
 document.addEventListener("keydown", function (e) {
+    // Get full document dimensions to allow movement across entire page
+    const documentHeight = Math.max(
+      document.body.scrollHeight, 
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight, 
+      document.documentElement.offsetHeight,
+      document.body.clientHeight,
+      document.documentElement.clientHeight
+    );
+    const documentWidth = Math.max(
+      document.body.scrollWidth,
+      document.documentElement.scrollWidth,
+      document.body.offsetWidth,
+      document.documentElement.offsetWidth,
+      document.body.clientWidth,
+      document.documentElement.clientWidth
+    );
+
     switch (e.key) {
-        case "ArrowUp":
+        case "w":
             posY = Math.max(0, posY - speed);
             break;
-        case "ArrowDown":
-            posY = Math.min(window.innerHeight - character.offsetHeight, posY + speed);
+        case "s":
+            posY = Math.min(documentHeight - character.offsetHeight, posY + speed);
             break;
-        case "ArrowLeft":
+        case "a":
             posX = Math.max(0, posX - speed);
             break;
-        case "ArrowRight":
-            posX = Math.min(window.innerWidth - character.offsetWidth, posX + speed);
+        case "d":
+            posX = Math.min(documentWidth - character.offsetWidth, posX + speed);
             break;
     }
     
@@ -30,8 +47,8 @@ document.addEventListener("keydown", function (e) {
     character.style.left = posX + "px";
 });
 
-
-updateCharacterImage('./img/default.png');  
+updateCharacterImage('./img/default.png');
+ 
 
 
 
@@ -56,42 +73,61 @@ function toggleDetails(row) {
 //       });
 
 
-//       //onload function that displays a video
-// window.onload = function() {
-//     var video = document.getElementById("video");
+window.onload = function() {
+    const video = document.getElementById("video");
     
-//     // Ensure the video is muted (required for autoplay in some browsers)
-//     video.muted = true;
-
-//     // Display the video and position it in the center
-//     video.style.display = "block";
-//     video.style.position = "absolute";
-//     video.style.top = "50%";
-//     video.style.left = "50%";
-//     video.style.transform = "translate(-50%, -50%)";
-//     video.style.zIndex = "9999";
-//     video.style.width = "100%";
-//     video.style.height = "auto";
+    if (!video) {
+        console.error("Video element with ID 'video' not found");
+        return;
+    }
     
-//     // Wait for the video to be ready to play
-//     video.oncanplay = function() {
-//         // Play the video once it's ready
-//         video.play();
-        
-//         // Set a timeout to pause and hide the video after 6 seconds
-//         setTimeout(function() {
-//             video.pause();  // Pause the video
-//             video.style.display = "none";  // Hide the video
-//         }, 6000);  // 6 seconds
-//     };
+    video.muted = true;
+    
+    video.loop = false;
+    
+    video.style.display = "block";
+    video.style.position = "fixed"; 
+    video.style.top = "50%";
+    video.style.left = "50%";
+    video.style.transform = "translate(-50%, -50%)";
+    video.style.zIndex = "9999";
+    video.style.width = "100%"; 
+    video.style.maxWidth = "100%"; 
+    video.style.height = "auto";
+    video.style.objectFit = "contain"; 
+    
+    video.onerror = function(e) {
+        console.error("Error loading video:", e);
+        video.style.display = "none";
+    };
+    
+    video.oncanplay = function() {
+       
+        video.play().catch(function(error) {
+            console.error("Error playing video:", error);
+            video.style.display = "none";
+        });
+    };
+    
+    video.onended = function() {
+        video.style.display = "none";
+    };
+    
+    const hideTimeout = setTimeout(function() {
+        if (video.style.display !== "none") {
+            video.pause();
+            video.style.display = "none";
+        }
+    }, 6000);
+    
+    video.addEventListener('ended', function() {
+        clearTimeout(hideTimeout);
+    });
+    
+    video.load();
 
-//     // Start loading the video (this step is important to trigger the oncanplay event)
-//     video.load();
-// }
-
-
-
-
-
-
-
+    video.play().catch(function(error) {
+        console.error("Error playing video:", error);
+        video.style.display = "none";
+    });
+};

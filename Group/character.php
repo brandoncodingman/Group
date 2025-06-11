@@ -1,3 +1,15 @@
+<?php
+require_once __DIR__ . '/core/Session.php';
+
+// Get login status and user info
+$loginStatus = Session::getLoginStatus();
+
+// Redirect 
+if (!$loginStatus['logged_in']) {
+    header('Location: login_register.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,6 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./css/app.css">
     <link rel="stylesheet" href="./css/character.css" />
      <link rel="stylesheet" href="./css/music.css" />
     <script src="./js/app.js" defer></script>
@@ -22,21 +35,35 @@
     <script src="./js/music.js" defer></script>
   </head>
   <body>
+     <?php include_once __DIR__ . '/includes/header.php'; ?>
     <!-- <video id="video" style="display: none;" src="./img/onload.mp4"></video> -->
 
     <!-- Character -->
     <img id="character" src="./img/earth-nobg.png" alt="Character" />
 
-    <header>
+   <header>
+       <!-- Include common header with session management -->
+    <?php include_once __DIR__ . '../includes/Header.php'; ?>
+
+   
+      <button id="music-toggle" class="music-btn">🔇 Music Off</button>
+         <?php if ($loginStatus['logged_in']): ?>
+    <?php endif; ?>
+
       <h1>Fluffy Planets</h1>
-        <button id="music-toggle" class="music-btn">🔇 Music Off</button>
+    <div class="user-info">
+        <span class="username">ようこそ、<?php echo htmlspecialchars($loginStatus['username']); ?>さん！</span>
+        <span class="points">ポイント: <?php echo $loginStatus['points']; ?></span>
+        <a href="actions/logout.php" class="logout-btn">ログアウト</a>
+    </div>
     </header>
 
     <nav id="nav">
-      <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./diary.php">Diary</a></li>
+           <ul>
+        <li><a href="./index.php">Home</a></li>
+        <li><a href="./diary1.php">Diary</a></li>
         <li><a href="./character.php">Character</a></li>
+        <li><a href="./information.php">Info</a></li>
         <li><a href="./shop.php">Shop</a></li>
         <li><a href="./cart.php">Cart</a></li>
       </ul>
@@ -61,17 +88,21 @@
         <div class="stars"></div>
         <div class="points">
           <p class="point-label">Stardust</p>
-          <p class="point-value">0</p>
+          <p class="point-value"><?php echo $loginStatus['points']; ?></p>
         </div>
         <div class="stars"></div>
       </div>
 
       <h1 class="title">Character Select</h1>
-
+ <!-- purchase button -->
+  <div class="button-container">
+    <button id="purchase-button">Buy</button>
+</div>
       <div class="select-container">
         <!-- Characters here from js -->
       </div>
     </div>
+
 <div class="table-container">
   <table>
     <thead>
@@ -86,6 +117,9 @@
   </table>
 </div>
 
-    <footer>&copy; 2025 Fluffy Planet</footer>
+ <div class="footer-container">
+   <footer>&copy; 2025 Fluffy Planets <br><span class="iip">Created with ❤️ by Miyazaki, Matsura, Brandon.</span></footer>      <script src="./js/global-character-loader.js"></script>
+ </div>
+      <script src="./js/global-character-loader.js"></script>
   </body>
 </html>

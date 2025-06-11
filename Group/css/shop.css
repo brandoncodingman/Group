@@ -1,7 +1,189 @@
 @charset 'UTF-8';
 
+*,
+html,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+}
+
 .shop {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
+    margin-top: 12vh;
 }
+
+.tshirt_container,
+.case_beige,
+.case_green,
+.plate,
+.Tumbler,
+.DIARY,
+.underlay {
+    text-align: center;
+    width: 35vw;
+    background-color: rgb(247, 247, 247, 0.7);
+    border: 5px solid #ff69B4;
+    margin: 5vh 5vw;
+    padding: 5vh 0;
+}
+
+img {
+    width: 30vw;
+}
+
+img:hover {
+    scale: 1.01 1.01;
+}
+
+/* .tshirt_container img,
+.case_beige img,
+.case_green img,
+.Tumbler img,
+.DIARY img,
+.underlay img {
+    width: 30vw;
+}
+
+.tshirt_container img:hover,
+.case_beige img:hover,
+.case_green img:hover,
+.Tumbler img:hover,
+.DIARY img:hover,
+.underlay img:hover {
+    scale: 1.01 1.01;
+} */
+
+.name {
+    font-size: 25px;
+    color: black;
+}
+
+.name:hover {
+    color: rgb(87, 87, 87);
+}
+
+a {
+    text-decoration: none;
+}
+
+.price {
+    font-size: 20px;
+}
+
+#front {
+    position: relative;
+    display: block;
+}
+
+#back {
+    display: none;
+    position: relative;
+}
+
+.t-shirt button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px black solid;
+    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 45px;
+    padding: 20px;
+}
+
+.t-shirt button:hover{
+    border: 3.5px black solid;
+    background-color: rgb(252, 181, 207);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight:1000;
+    font-size: 33px;
+}
+
+.left {
+    position: absolute;
+    top: 50%;
+    left: 2.5vw;
+    z-index: 10;
+
+}
+
+.right {
+    position: absolute;
+    top: 50%;
+    right: 2.5vw;
+}
+
+.t-shirt{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.t-shirt img {
+    margin: 0 auto;
+}
+
+.t-shirt a {
+    margin: 0 auto;
+}
+
+.t-shirt #front{
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 650px) {
+    .shop {
+        flex-direction: column;
+    }
+
+    .tshirt_container,
+    .case_beige,
+    .case_green,
+    .plate,
+    .Tumbler,
+    .DIARY,
+    .underlay {
+        width: 70vw;
+
+        margin: 4vh auto;
+        padding: 5vh 0;
+    }
+
+    img {
+        width: 65vw;
+    }
+
+    .name {
+        font-size: 25px;
+    }
+
+    .price {
+        font-size: 20px;
+    }
+}
+
+
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        letter-spacing: 0.2em;
+      }
+
+      footer .iip{
+        font-size: 20px;
+ letter-spacing: 0.2em;
+      }

@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const musicButton = document.getElementById("music-toggle");
 
-  // Create audio
   const audio = new Audio("./music/FluffyPlanets.mp3");
   audio.loop = true; 
   audio.volume = 0.5; 

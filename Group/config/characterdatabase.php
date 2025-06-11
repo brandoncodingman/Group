@@ -2,33 +2,41 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
+// Enable error reporting /remove later
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Database configuration
-$host = 'localhost';
-$dbname = 'fluffy_planets';
-$username = 'root';  // Replace with your MySQL username
-$password = '';  // Replace with your MySQL password
+$host = 'mysql320.phy.lolipop.lan';
+$dbname = 'LAA1651812-fluffy';
+$username = 'LAA1651812';  
+$password = 'root';  
 
 try {
-    // Create PDO connection
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password, [
+    $dsn = "mysql:host={$host};dbname={$dbname};charset=utf8";
+    $pdo = new PDO($dsn, $username, $password, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES => false
     ]);
 
-    // Get all characters with their facts
+    $testQuery = "SELECT 1";
+    $pdo->query($testQuery);
+
     $query = "SELECT 
                 c.character_key,
                 c.name,
                 c.img_src,
+                c.points,
                 cf.fact
               FROM characters c
               LEFT JOIN character_facts cf ON c.character_key = cf.character_key
               ORDER BY c.character_key, cf.sort_order";
     
-    $stmt = $pdo->query($query);
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
     $results = $stmt->fetchAll();
 
-    // Group facts by character
     $characters = [];
     foreach ($results as $row) {
         $key = $row['character_key'];
@@ -37,6 +45,7 @@ try {
             $characters[$key] = [
                 'name' => $row['name'],
                 'imgSrc' => $row['img_src'],
+                'points' => (int)$row['points'], 
                 'facts' => []
             ];
         }
@@ -50,9 +59,24 @@ try {
 
 } catch (PDOException $e) {
     http_response_code(500);
-    echo json_encode(['error' => 'Database connection failed: ' . $e->getMessage()]);
+    $errorResponse = [
+        'error' => 'Database connection failed',
+        'message' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'debug_info' => [
+            'host' => $host,
+            'database' => $dbname,
+            'username' => $username
+        ]
+    ];
+    echo json_encode($errorResponse, JSON_PRETTY_PRINT);
 } catch (Exception $e) {
     http_response_code(500);
-    echo json_encode(['error' => 'An error occurred: ' . $e->getMessage()]);
+    $errorResponse = [
+        'error' => 'An error occurred',
+        'message' => $e->getMessage(),
+        'code' => $e->getCode()
+    ];
+    echo json_encode($errorResponse, JSON_PRETTY_PRINT);
 }
 ?>

@@ -1,77 +1,77 @@
- *,html {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-         font-family: "Bangers", system-ui;
-      }
+/* Base Reset and Font */
+*,
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Bangers", system-ui;
+}
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-y: auto; 
- background-image: url('../img/background-shop.jfif');  background-position: center;
+  overflow-y: auto;
+  background-image: url('../img/background-shop.jfif');
+  background-position: center;
   background-size: cover;
   background-repeat: repeat;
 }
 
-.page-wrapper{
-display: flex;
+.page-wrapper {
+  display: flex;
   flex-direction: column;
   flex-grow: 1;
-  overflow-y: auto; 
+  overflow-y: auto;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
-      .bangers-regular {
+.bangers-regular {
   font-family: "Bangers", system-ui;
   font-weight: 400;
   font-style: normal;
 }
 
-      header {
-       background-color: rgb(168, 168, 168);
-        color: rgb(255, 255, 255);
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-        padding: 20px;
-        text-align: center;
+/* Header */
+header {
+  background-color: rgb(168, 168, 168);
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  text-align: center;
   letter-spacing: 0.2em;
   font-size: 50px;
-      }
-      
+}
 
-      .sidebar {
-        flex: 1;
-        padding: 20px;
-        background-color: #eee;
-        border: 1px solid #ccc;
-      }
+.sidebar {
+  flex: 1;
+  padding: 20px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+}
 
+footer {
+  align-items: center;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  width: 100%;
+}
 
-      footer {
-        align-items: center;
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 15px;
-        width: 100%;
-      }
+#character {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 100px;
+  height: auto;
+  transition: top 0.05s, left 0.05s;
+  z-index: 1000;
+  pointer-events: none;
+}
 
-      #character {
-        position: absolute;
-        top: 100px;
-        left: 100px;
-        width: 100px;
-        height: auto;
-        transition: top 0.05s, left 0.05s;
-        z-index: 1000;
-        pointer-events: none;
-      }
-
-    
-
-    /* hamburger menu */
+/* Navigation */
 #nav ul {
   list-style: none;
   margin: 0;
@@ -79,6 +79,7 @@ display: flex;
   display: flex;
   justify-content: center;
   background-color: #333;
+  transition: transform 0.3s ease;
 }
 
 #nav ul li {
@@ -90,7 +91,7 @@ display: flex;
 #nav ul li:hover {
   background-color: #555;
   border: solid white 5px;
-  border-radius: 65% 46% 41% 29% / 54% 58% 40% 43% ;
+  border-radius: 65% 46% 41% 29% / 54% 58% 40% 43%;
 }
 
 #nav ul li a {
@@ -100,7 +101,6 @@ display: flex;
   letter-spacing: 0.15em;
 }
 
-/* Hamburger styles */
 .hamburger {
   display: none;
   cursor: pointer;
@@ -115,7 +115,11 @@ display: flex;
   border-radius: 5px;
 }
 
-/* Media query for responsiveness */
+#nav.active ul {
+  transform: translateX(0);
+}
+
+/* Responsive Nav */
 @media (max-width: 768px) {
   #nav ul {
     display: none;
@@ -142,39 +146,26 @@ display: flex;
   }
 }
 
-/* Add transition for smooth animation */
-#nav ul {
-  transition: transform 0.3s ease;
-}
-
-#nav.active ul {
-  transform: translateX(0);
-}
-
-
-/* cart page start */
-  #shop-header {
-      background-color: rgba(247, 247, 247, 0.7);
+/* Shop Items */
+#shop-header {
+  background-color: rgba(247, 247, 247, 0.7);
   padding: 30px 100px;
   text-align: center;
   letter-spacing: 0.2em;
   font-size: 70px;
   color: #FF69B4;
-  text-shadow: 6px 1px 2px rgba(0, 0, 0, 0.7);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   margin-top: 70px;
-  border: 8px solid #FF69B4;  
-  border-radius: 49% 65% 27% 46% / 49% 38% 54% 58%;  
+  border: 8px solid #FF69B4;
+  border-radius: 49% 65% 27% 46% / 49% 38% 54% 58%;
   transition: all 1.3s ease;
 }
 
 #shop-header:hover {
-      background-color: rgba(247, 247, 247, 1.0);
-    color: #FF69B4;
-  text-shadow: 6px 1px 2px rgba(0, 0, 0, 0.7);
-  border-radius: 20% 66% 59% 25% / 16% 53% 19% 16% ;
+  background-color: rgba(247, 247, 247, 1.0);
+  color: #FF69B4;
+  border-radius: 20% 66% 59% 25% / 16% 53% 19% 16%;
 }
-
-
 
 .products {
   display: flex;
@@ -186,25 +177,23 @@ display: flex;
 
 .product {
   border: 2px solid #ccc;
-   background-color: rgba(247, 247, 247, 0.7);
+  background-color: rgba(247, 247, 247, 0.7);
   padding: 15px;
   text-align: center;
   width: 200px;
   border-radius: 10px;
-    color: #000000;
+  color: #000000;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   margin-top: 70px;
-  border: 8px solid #FF69B4;  
-  border-radius: 49% 65% 27% 46% / 49% 38% 54% 58%;  
+  border: 8px solid #FF69B4;
+  border-radius: 49% 65% 27% 46% / 49% 38% 54% 58%;
   transition: all 1.3s ease;
-letter-spacing: 0.2em;
+  letter-spacing: 0.2em;
 }
 
 .product:hover {
-   color: rgb(0, 0, 0);
-  text-shadow: 6px 1px 2px rgba(0, 0, 0, 0.7);
-  border-radius: 20% 66% 59% 25% / 16% 53% 19% 16% ;
-   background-color: rgba(247, 247, 247, 1.0);
+  background-color: rgba(247, 247, 247, 1.0);
+  border-radius: 20% 66% 59% 25% / 16% 53% 19% 16%;
 }
 
 .product button {
@@ -221,52 +210,101 @@ letter-spacing: 0.2em;
   background-color: #999999;
 }
 
+/* Shopping Cart Form */
 .cart {
-  margin-top: 30px;
-  background-color: rgba(247, 247, 247, 0.7);
-  padding: 20px;
-  border-top: 3px solid #444;
-  width: 80%;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  border-radius: 10px;
-   border: 8px solid #FF69B4;  
-  border-radius: 49% 65% 27% 46% / 49% 38% 54% 58%;  
-  transition: all 1.3s ease;
-letter-spacing: 0.2em;
-padding: 50px;
-}
-
-.cart:hover{
-       color: rgb(0, 0, 0);
-       background-color: rgba(247, 247, 247, 1.0);
-  text-shadow: 6px 1px 2px rgba(0, 0, 0, 0.7);
-  border-radius: 20% 66% 59% 25% / 16% 53% 19% 16% 
-}
-
-.cart ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.cart li {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 1000px;
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  margin: 40px auto;
+  border-radius: 20px;
+  border: 6px solid #FF69B4;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  font-size: 35px;
 }
 
-.cart button {
-  padding: 5px 10px;
-  cursor: pointer;
-  background-color: #444;
+.cart h2,
+.cart h3 {
+  text-align: center;
+  color: #FF69B4;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.cart label {
+  margin: 12px 0 5px;
+  font-size: 2rem;
+  color: #333;
+  width: 100%;
+  display: block;
+}
+
+.cart input[type="text"],
+.cart input[type="email"],
+.cart input[type="number"],
+.cart input[type="password"],
+.cart input[type="tel"],
+.cart input[type="submit"],
+.cart textarea,
+.cart select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.cart textarea {
+  resize: vertical;
+}
+
+.cart select {
+  appearance: none;
+  background-color: #fff;
+}
+
+#checkout-btn {
+  background-color: #FF69B4;
   color: white;
+  font-weight: bold;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
-.cart button:hover {
-background-color: #999999;
+#checkout-btn:hover {
+  background-color: #e458a0;
+}
+
+.cart .note {
+  font-size: 0.9rem;
+  color: #777;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.cart p strong {
+  font-size: 1.2em;
+  color: #000;
+}
+
+/* Remove leftover cart input override */
+input[type="text"],
+input[type="number"] {
+  margin: 0;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
 }
