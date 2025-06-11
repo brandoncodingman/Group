@@ -17,6 +17,16 @@ body {
   background-repeat: repeat;
 }
 
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+body:active {
+  animation: pulse 0.4s ease infinite;
+}
+
       .bangers-regular {
   font-family: "Bangers", system-ui;
   font-weight: 400;

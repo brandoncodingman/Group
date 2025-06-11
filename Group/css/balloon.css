@@ -55,3 +55,17 @@ figcaption {
   font-style: normal;
   letter-spacing: 0.2em;
 }
+
+.balloon:active {
+    transform: rotate(90deg);
+    animation: bounce 1.4s infinite alternate;
+}
+
+@keyframes bounce {
+    0% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(-90deg);
+    }
+}

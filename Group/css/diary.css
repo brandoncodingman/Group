@@ -371,3 +371,25 @@ form button:hover {
         font-size: 20px;
  letter-spacing: 0.2em;
       }
+
+#diary-form:active {
+   filter: grayscale(100%);
+} 
+
+.balloon:active {
+    transform: rotate(90deg);
+    animation: bounce 1.4s infinite alternate;
+}
+
+@keyframes bounce {
+    0% {
+        transform: rotate(90deg) scale(1);
+    }
+    50% {
+        transform: rotate(90deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(-90deg);
+    }
+}
+      

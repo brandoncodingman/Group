@@ -93,3 +93,16 @@ table {
         filter: brightness(1.2);
         transform: scale(1.1);
       }
+
+.youtube-container iframe:active, .table-container:active{
+    animation: bounce 1.4s infinite alternate;
+}
+
+@keyframes bounce {
+    0% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(-90deg);
+    }
+}
