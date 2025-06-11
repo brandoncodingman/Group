@@ -2,9 +2,9 @@
 
 let cart = [];
 let total = 0;
-let formSubmissionInProgress = false; // Add flag to prevent multiple submissions
+let formSubmissionInProgress = false; 
 
-// Load cart from sessionStorage on page load
+// Load cart 
 function loadCart() {
     const savedCart = sessionStorage.getItem('cart');
     const savedTotal = sessionStorage.getItem('total');
@@ -16,7 +16,7 @@ function loadCart() {
     }
 }
 
-// Save cart to sessionStorage
+// Save cart 
 function saveCart() {
     sessionStorage.setItem('cart', JSON.stringify(cart));  
     sessionStorage.setItem('total', total.toString());
@@ -24,11 +24,10 @@ function saveCart() {
     updateFormInputs();
 }
 
-// Add item to cart (supports both simple and complex items)
+// Add item to cart 
 function addToCart(item, price, qty = 1) {
     console.log('Adding to cart:', item, price, qty);
     
-    // Check if item already exists in cart
     const existingItem = cart.find(cartItem => cartItem.item === item);
 
     if (existingItem) {
@@ -43,17 +42,14 @@ function addToCart(item, price, qty = 1) {
         });
     }
 
-    // Recalculate total
     total = cart.reduce((sum, cartItem) => sum + cartItem.totalPrice, 0);
 
     saveCart();
     updateCartDisplay();
 
-    // Show confirmation message
     alert(`${item} ${qty}個をカートに追加しました！`);
 }
 
-// Update form with hidden inputs
 function updateFormInputs() {
     const form = document.querySelector('form.cart');
     if (!form) {
@@ -61,11 +57,9 @@ function updateFormInputs() {
         return;
     }
     
-    // Remove any existing hidden inputs to avoid duplicates
     const existingInputs = form.querySelectorAll('input[type="hidden"][name^="items"]');
     existingInputs.forEach(input => input.remove());
     
-    // Add fresh hidden inputs for each cart item
     cart.forEach((item, index) => {
         const inputs = [
             { name: `items[${index}][item]`, value: item.item },
@@ -86,7 +80,6 @@ function updateFormInputs() {
     console.log('Form inputs updated. Hidden inputs count:', form.querySelectorAll('input[type="hidden"]').length);
 }
 
-// Update cart display with proper form inputs for PHP submission
 function updateCartDisplay() {
     console.log('Updating cart display, current cart:', cart);
     
@@ -94,7 +87,6 @@ function updateCartDisplay() {
     const totalDisplay = document.getElementById('total');
 
     if (cartItems) {
-        // Clear existing content
         cartItems.innerHTML = '';
 
         if (cart.length === 0) {
@@ -114,7 +106,6 @@ function updateCartDisplay() {
                 itemDiv.style.margin = '10px 0';
                 itemDiv.style.borderRadius = '5px';
                 
-                // Create visible content
                 const itemInfo = document.createElement('div');
                 itemInfo.className = 'item-info';
                 itemInfo.innerHTML = `
@@ -128,7 +119,6 @@ function updateCartDisplay() {
                     <p><strong>小計: ￥${entry.totalPrice}</strong></p>
                 `;
 
-                // Create remove button
                 const removeBtn = document.createElement('button');
                 removeBtn.textContent = '削除';
                 removeBtn.className = 'remove-btn';
@@ -142,7 +132,6 @@ function updateCartDisplay() {
                 removeBtn.style.cursor = 'pointer';
                 removeBtn.onclick = () => removeFromCart(index);
 
-                // Append all elements
                 itemDiv.appendChild(itemInfo);
                 itemDiv.appendChild(removeBtn);
                 cartItems.appendChild(itemDiv);
@@ -150,12 +139,10 @@ function updateCartDisplay() {
         }
     }
 
-    // Update total display
     if (totalDisplay) {
         totalDisplay.textContent = total;
     }
 
-    // Update checkout button state
     const checkoutBtn = document.getElementById('checkout-btn');
     if (checkoutBtn) {
         checkoutBtn.disabled = cart.length === 0;
@@ -168,11 +155,9 @@ function updateCartDisplay() {
         }
     }
     
-    // Update form inputs whenever display is updated
     updateFormInputs();
 }
 
-// Update quantity of specific item
 function updateQuantity(index, newQuantity) {
     if (index >= 0 && index < cart.length) {
         if (newQuantity <= 0) {
@@ -223,11 +208,10 @@ function clearCart() {
     }
 }
 
-// Simplified checkout function - now handles form submission directly
+// checkout function 
 function checkout(event) {
     console.log('Checkout called, cart:', cart);
     
-    // Prevent multiple submissions
     if (formSubmissionInProgress) {
         console.log('Form submission already in progress');
         if (event) event.preventDefault();
@@ -240,23 +224,18 @@ function checkout(event) {
         return false;
     }
 
-    // Create order summary for confirmation
     let orderSummary = "ご注文内容:\n";
     cart.forEach(item => {
         orderSummary += `${item.item} × ${item.quantity} = ${item.totalPrice}\n`;
     });
     orderSummary += `\n合計: ${total}`;
 
-    // Confirm purchase
     if (confirm(orderSummary + "\n\nこの内容で注文しますか？")) {
-        // Set flag to prevent multiple submissions
         formSubmissionInProgress = true;
         
-        // Ensure form inputs are up to date
         updateFormInputs();
         
         console.log('Form submission approved');
-        // Let the form submit naturally
         return true;
     } else {
         console.log('Form submission cancelled by user');
@@ -265,7 +244,6 @@ function checkout(event) {
     }
 }
 
-// Function to clear cart after successful purchase
 function clearCartAfterPurchase() {
     cart.length = 0;
     total = 0;
@@ -275,23 +253,17 @@ function clearCartAfterPurchase() {
     formSubmissionInProgress = false; // Reset flag
 }
 
-// Initialize cart when page loads
 function initializeCart() {
     console.log('Initializing cart system');
     loadCart();
     
-    // Set up form submission handler
     const form = document.querySelector('form.cart');
     if (form) {
-        // Ensure we have form inputs ready
         updateFormInputs();
         
-        // Add single event listener for form submission
         form.addEventListener('submit', function(e) {
             console.log('Form submit event triggered');
-            // Call checkout with the event object
             if (!checkout(e)) {
-                // checkout function already called preventDefault if needed
                 console.log('Form submission prevented');
                 return false;
             }
@@ -300,10 +272,8 @@ function initializeCart() {
     }
 }
 
-// Initialize cart when DOM is ready
 document.addEventListener('DOMContentLoaded', initializeCart);
 
-// Export functions for use in other scripts
 window.cartFunctions = {
     addToCart,
     removeFromCart,

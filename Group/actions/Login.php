@@ -45,7 +45,7 @@ Class Login {
         exit();
     }
 
-    // Method to manually fix a user's password (for debugging - remove in production)
+    // for debugging - remove later
     public function fixUserPassword(string $username, string $newPassword): bool {
         $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
         
@@ -93,7 +93,7 @@ Class Login {
     }
 }
 
-// Handle password fix request (remove in production)
+// Handle password fix request /remove later
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'fix_password') {
     if (isset($_POST['username']) && isset($_POST['new_password'])) {
         $dbManager = new DbManager();

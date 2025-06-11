@@ -12,7 +12,6 @@ console.log('DEBUG: Script loaded, elements found:', {
   purchaseButton: !!purchaseButton
 });
 
-// Load user's current character on page load
 function loadUserCharacter() {
   fetch('./actions/get_user_character.php')
     .then(response => response.json())
@@ -96,7 +95,6 @@ fetch('./config/characterdatabase.php')
       console.log('DEBUG: Purchase button initially disabled');
     }
 
-    // Load user's current character after characters are loaded
     loadUserCharacter();
   })
   .catch(error => {
@@ -178,7 +176,6 @@ function purchaseCharacter(characterKey) {
   });
 }
 
-// Function to update the character image
 function updateCharacterImage(imageSrc) {
   console.log('DEBUG: Updating character image to:', imageSrc);
   const characterImg = document.getElementById('character');

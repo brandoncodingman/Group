@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
-// Enable error reporting for debugging (remove in production)
+// Enable error reporting /remove later
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -13,7 +13,6 @@ $username = 'LAA1651812';
 $password = 'root';  
 
 try {
-    // Create PDO connection with proper DSN format
     $dsn = "mysql:host={$host};dbname={$dbname};charset=utf8";
     $pdo = new PDO($dsn, $username, $password, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -21,11 +20,9 @@ try {
         PDO::ATTR_EMULATE_PREPARES => false
     ]);
 
-    // Test the connection first
     $testQuery = "SELECT 1";
     $pdo->query($testQuery);
 
-    // Main query to get characters and facts
     $query = "SELECT 
                 c.character_key,
                 c.name,
@@ -40,7 +37,6 @@ try {
     $stmt->execute();
     $results = $stmt->fetchAll();
 
-    // Process results into the expected format
     $characters = [];
     foreach ($results as $row) {
         $key = $row['character_key'];
@@ -59,11 +55,9 @@ try {
         }
     }
 
-    // Return the data
     echo json_encode($characters, JSON_PRETTY_PRINT);
 
 } catch (PDOException $e) {
-    // Database specific errors
     http_response_code(500);
     $errorResponse = [
         'error' => 'Database connection failed',
@@ -77,7 +71,6 @@ try {
     ];
     echo json_encode($errorResponse, JSON_PRETTY_PRINT);
 } catch (Exception $e) {
-    // General errors
     http_response_code(500);
     $errorResponse = [
         'error' => 'An error occurred',

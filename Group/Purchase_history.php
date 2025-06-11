@@ -1,28 +1,52 @@
 <?php 
 require_once "./core/DbManager.php";
+require_once "./core/Session.php"; 
 
 try {
     $dbManager = new DbManager();
     $pdo = $dbManager->getConnection();
     
-    // セッションからユーザーIDを取得（必要に応じてコメントアウトを解除）
-    // $userId = Session::getUserId();
+    // セッションからユーザーIDを取得
+    $userId = Session::getUserId();
+    
+    // ユーザーIDの確認
+    if (!$userId) {
+        throw new Exception("ユーザーIDが取得できません。ログインしてください。");
+    }
     
     // 購入情報を取得（最新順）
-    $stmt = $pdo->prepare('SELECT * FROM user_purchases ORDER BY date DESC');
-    $stmt->execute();
+    $stmt = $pdo->prepare('
+        SELECT id, product, price, amount, total, date
+        FROM user_purchases
+        WHERE user_id = :user_id
+        ORDER BY date DESC
+    ');
+    $stmt->execute([':user_id' => $userId]);
     $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-    // デバッグ用：取得したデータの構造を確認
+    // デバッグ用：データ確認
     if (!empty($orders)) {
         $sampleOrder = $orders[0];
         $availableColumns = array_keys($sampleOrder);
+    } else {
+        // データが存在しない場合の件数取得
+        $debugStmt = $pdo->prepare('
+            SELECT COUNT(*) as count
+            FROM user_purchases
+            WHERE user_id = :user_id
+        ');
+        $debugStmt->execute([':user_id' => $userId]);
+        $debugResult = $debugStmt->fetch(PDO::FETCH_ASSOC);
+        $debugMessage = "ユーザーID {$userId} の購入履歴件数: " . $debugResult['count'];
     }
-    
+
 } catch (PDOException $e) {
     $errorMessage = "データベースエラー: " . $e->getMessage();
+} catch (Exception $e) {
+    $errorMessage = "エラー: " . $e->getMessage();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -98,15 +122,45 @@ try {
             font-style: italic;
             padding: 40px;
         }
-        .status {
-            padding: 4px 8px;
-            border-radius: 12px;
+        .debug-info {
+            background-color: #e7f3ff; 
+            padding: 10px; 
+            margin-bottom: 20px; 
+            border-radius: 5px; 
             font-size: 12px;
-            font-weight: bold;
         }
-        .status-completed { background-color: #d4edda; color: #155724; }
-        .status-pending { background-color: #fff3cd; color: #856404; }
-        .status-cancelled { background-color: #f8d7da; color: #721c24; }
+        .error-message {
+            background-color: #f8d7da; 
+            color: #721c24; 
+            padding: 15px; 
+            border-radius: 5px; 
+            margin-bottom: 20px;
+        }
+
+        .return-button-container{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .return-button{
+            padding: 10px 20px;
+            background-color:rgb(0, 92, 190);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 34px;
+        }
+
+        .return-button:hover{
+            background-color:rgb(41, 144, 253);
+        }
+
+        .return-button a{
+            text-decoration: none;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -114,16 +168,24 @@ try {
         <h1>購入履歴一覧</h1>
         
         <?php if (isset($errorMessage)): ?>
-            <div style="background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+            <div class="error-message">
                 <?= htmlspecialchars($errorMessage) ?>
             </div>
-        <?php elseif (empty($orders)): ?>
+        <?php endif; ?>
+        
+        <?php if (isset($debugMessage)): ?>
+            <div class="debug-info">
+                <strong>デバッグ情報:</strong> <?= htmlspecialchars($debugMessage) ?>
+            </div>
+        <?php endif; ?>
+        
+        <?php if (empty($orders) && !isset($errorMessage)): ?>
             <div class="no-orders">
                 購入履歴がありません。
             </div>
-        <?php else: ?>
+        <?php elseif (!empty($orders)): ?>
             <!-- デバッグ用：利用可能なカラム表示 -->
-            <div style="background-color: #e7f3ff; padding: 10px; margin-bottom: 20px; border-radius: 5px; font-size: 12px;">
+            <div class="debug-info">
                 <strong>データベースのカラム:</strong> <?= implode(', ', $availableColumns) ?>
             </div>
             
@@ -142,14 +204,14 @@ try {
                             
                             <?php if (isset($order['date'])): ?>
                                 <div class="order-date">
-                                    <?= date('Y年m月d日 H:i:s', strtotime($order['date'])) ?>
+                                    <?= date('Y年m月d日', strtotime($order['date'])) ?>
                                 </div>
                             <?php endif; ?>
                         </div>
                         
-                        <?php if (isset($order['total_amount']) || isset($order['amount']) || isset($order['price'])): ?>
+                        <?php if (isset($order['total']) || isset($order['amount']) || isset($order['price'])): ?>
                         <div class="order-total">
-                            ¥<?= number_format($order['total_amount'] ?? $order['amount'] ?? $order['price'] ?? 0) ?>
+                            <?= number_format($order['total'] ?? $order['amount'] ?? $order['price'] ?? 0) ?>
                         </div>
                         <?php endif; ?>
                     </div>
@@ -163,7 +225,7 @@ try {
                                         <?php if (in_array($key, ['date', 'created_at', 'updated_at'])): ?>
                                             <?= date('Y-m-d H:i:s', strtotime($value)) ?>
                                         <?php elseif (in_array($key, ['amount', 'price', 'total_amount', 'total'])): ?>
-                                            ¥<?= number_format($value) ?>
+                                            <?= number_format($value) ?>
                                         <?php else: ?>
                                             <?= htmlspecialchars($value) ?>
                                         <?php endif; ?>
@@ -175,6 +237,9 @@ try {
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
+    </div>
+    <div class="return-button-container">
+        <button class="return-button"><a href="./shop.php">一覧へ戻る</a></button>
     </div>
 </body>
 </html>
