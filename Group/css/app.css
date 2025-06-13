@@ -120,18 +120,14 @@ body {
   display: flex;
   justify-content: center;
   background-color: #333;
+  flex-wrap: wrap; 
 }
 
 #nav ul li {
   padding: 25px 25px;
   transition: background-color 1s ease, border 1s ease;
-    margin: 18px;
-}
-
-#nav ul li:hover {
-  background-color: #555;
-  border: solid white 5px;
-  border-radius: 65% 46% 41% 29% / 54% 58% 40% 43% ;
+  margin: 18px;
+  flex-shrink: 1; 
 }
 
 #nav ul li a {
@@ -139,26 +135,46 @@ body {
   text-decoration: none;
   font-size: 40px;
   letter-spacing: 0.15em;
+  white-space: nowrap; 
 }
 
-/* Hamburger styles */
-.hamburger {
-  display: none;
-  cursor: pointer;
-  flex-direction: column;
-  gap: 5px;
-  z-index: 1000;
+@media (max-width: 1200px) {
+  #nav ul li {
+    padding: 20px 20px;
+    margin: 15px;
+  }
+  
+  #nav ul li a {
+    font-size: 36px;
+    letter-spacing: 0.1em;
+  }
 }
 
-.hamburger .bar {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  border-radius: 5px;
-  z-index: 1000;
+@media (max-width: 1000px) {
+  #nav ul li {
+    padding: 15px 15px;
+    margin: 12px;
+  }
+  
+  #nav ul li a {
+    font-size: 32px;
+    letter-spacing: 0.08em;
+  }
 }
 
-/* Media  */
+@media (max-width: 900px) {
+  #nav ul li {
+    padding: 12px 12px;
+    margin: 8px;
+  }
+  
+  #nav ul li a {
+    font-size: 28px;
+    letter-spacing: 0.05em;
+  }
+}
+
+/*   hamburger breakpoint */
 @media (max-width: 768px) {
   #nav ul {
     display: none;
@@ -171,6 +187,12 @@ body {
     text-align: center;
     padding: 15px 0;
     width: 100%;
+    margin: 0; 
+  }
+  
+  #nav ul li a {
+    font-size: 40px; 
+    letter-spacing: 0.15em;
   }
 
   .hamburger {
@@ -185,12 +207,3 @@ body {
     display: flex;
   }
 }
-
-#nav ul {
-  transition: transform 0.3s ease;
-}
-
-#nav.active ul {
-  transform: translateX(0);
-}
-
