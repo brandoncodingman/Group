@@ -375,14 +375,18 @@ tbody tr:first-child td {
   display: flex;
   justify-content: center;
   background-color: #333;
-  flex-wrap: wrap; 
 }
 
 #nav ul li {
   padding: 25px 25px;
-  transition: background-color 1s ease, border 1s ease;
+  transition: background-color 0.8s ease, border 0.8s ease;
   margin: 18px;
-  flex-shrink: 1; 
+}
+
+#nav ul li:hover {
+  background-color: #555;
+  border: solid white 5px;
+  border-radius: 65% 46% 41% 29% / 54% 58% 40% 43% ;
 }
 
 #nav ul li a {
@@ -390,6 +394,68 @@ tbody tr:first-child td {
   text-decoration: none;
   font-size: 40px;
   letter-spacing: 0.15em;
+}
+
+/* Hamburger styles */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* Media  */
+@media (max-width: 768px) {
+  #nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #333;
+  }
+
+  #nav ul li {
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+  }
+
+  .hamburger {
+    display: flex;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+  }
+
+  #nav.active ul {
+    display: flex;
+  }
+}
+
+#nav ul {
+  transition: transform 0.3s ease;
+}
+
+#nav.active ul {
+  transform: translateX(0);
+}
+
+/* Add these responsive rules to app.css */
+#nav ul {
+  flex-wrap: wrap; 
+}
+
+#nav ul li {
+  flex-shrink: 1; 
+}
+
+#nav ul li a {
   white-space: nowrap; 
 }
 
@@ -426,39 +492,5 @@ tbody tr:first-child td {
   #nav ul li a {
     font-size: 28px;
     letter-spacing: 0.05em;
-  }
-}
-
-/*   hamburger breakpoint */
-@media (max-width: 768px) {
-  #nav ul {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #333;
-  }
-
-  #nav ul li {
-    text-align: center;
-    padding: 15px 0;
-    width: 100%;
-    margin: 0; 
-  }
-  
-  #nav ul li a {
-    font-size: 40px; 
-    letter-spacing: 0.15em;
-  }
-
-  .hamburger {
-    display: flex;
-    position: absolute;
-    top: 25px;
-    right: 20px;
-    z-index: 1000;
-  }
-
-  #nav.active ul {
-    display: flex;
   }
 }
