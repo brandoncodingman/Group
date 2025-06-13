@@ -185,3 +185,8 @@ a {
     background-color: #ff69b4dc;
     scale: 0.99 0.99;
 }
+
+footer{
+ position: fixed;
+  bottom: 0;
+  left: 0;}
