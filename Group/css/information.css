@@ -4,6 +4,7 @@
         margin: 0;
         padding: 0;
          font-family: "Bangers", system-ui;
+          overflow-x: hidden
       }
 
 body {
@@ -15,6 +16,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: repeat;
+   overflow-x: hidden
 }
 
 @keyframes pulse {
@@ -101,6 +103,8 @@ body:active {
   margin-bottom: 20px;
   letter-spacing: 0.2em;
   padding: 30px;
+  margin-right: 5px;
+  margin-left: 5px;
   gap: 20px;
   transition: transform 1.3s ease-in-out;
 }
@@ -499,4 +503,13 @@ body:active {
   transform: scale(1.06);
   filter: saturate(1.2);
   filter: brightness(1.2);
+}
+
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: 3.5rem; 
+    letter-spacing: 0.1em; 
+    word-break: break-word; 
+    hyphens: auto; 
+  }
 }

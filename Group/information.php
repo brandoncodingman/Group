@@ -185,7 +185,7 @@ $loginStatus = Session::getLoginStatus();
 
       <!-- company information start -->
       <div class="company-container">
-        <h1 class="section-heading">Fluffy Planets Information</h1>
+        <h1 class="section-heading">Fluffy Planets Info</h1>
         <div class="image-container">
           <img id="company-image" src="./img/logo.jfif" alt="Fluffy Planets" />
         </div>
