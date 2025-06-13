@@ -1,5 +1,4 @@
-'use strict';
-
+'use strict'; 
 let cart = [];
 let total = 0;
 let formSubmissionInProgress = false; 
