@@ -47,6 +47,10 @@ table {
         letter-spacing: 0.2em;
     }
 
+    .br{
+      display: none;
+    }
+
 .footer-container footer{
   display: flex;
   height: auto;
@@ -105,4 +109,10 @@ table {
     100% {
         transform: rotate(-90deg);
     }
+}
+
+@media screen and (max-width: 880px) {
+.br{
+  display: block;
+}
 }
