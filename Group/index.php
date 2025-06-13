@@ -41,12 +41,12 @@ $loginStatus = Session::getLoginStatus();
       <div class="user-info">
         <span class="username"
           >ようこそ、<?php echo htmlspecialchars($loginStatus['username']); ?>さん！</span
-        >
+        ><br class="br">
         <span class="points"
           >ポイント:
           <?php echo $loginStatus['points']; ?></span
-        >
-        <a href="actions/logout.php" class="logout-btn">ログアウト</a>
+        ><br class="br">
+        <a href="actions/logout.php" class="logout-btn">ログアウト</a><br class="br">
       </div>
     </header>
 
