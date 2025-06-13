@@ -1,5 +1,5 @@
 'use strict';
-
+//cart variables
 let cart = [];
 let total = 0;
 let formSubmissionInProgress = false; 
