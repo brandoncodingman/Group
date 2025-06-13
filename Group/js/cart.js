@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; 
 //cart variables
 let cart = [];
 let total = 0;
