@@ -80,23 +80,37 @@ img {
         display: block;
     }
 
-    #buttons{
+    #buttons {
+        position: absolute;
+        top: 68%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        /* gap: 20px; */
+        align-items: center;
+        width: 200px;
+        height: 140px;
+        text-decoration: none;
+    }
+
+    a {
+        text-decoration: none;
     }
 
     #register {
-        position: unset;
+        order: 2;
+        position: static;
         right: unset;
         top: unset;
-        margin: 18vh auto -7%;
+        margin-top: 100%;
     }
 
     #login {
-        position: unset;
+        order: 1;
+        position: static;
         left: unset;
         top: unset;
-        margin: -60vh auto 0;
+        margin: 0;
     }
 }
