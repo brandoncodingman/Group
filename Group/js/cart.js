@@ -1,5 +1,5 @@
 'use strict';
-//cart variables
+
 let cart = [];
 let total = 0;
 let formSubmissionInProgress = false; 
@@ -111,8 +111,10 @@ function updateCartDisplay() {
                 itemInfo.innerHTML = `
                     <h4>${entry.item}</h4>
                     <p>価格: ￥${entry.price}</p>
-                    <div class="quantity-controls">                      
+                    <div class="quantity-controls">
+                        <button type="button" onclick="updateQuantity(${index}, ${entry.quantity - 1})" ${entry.quantity <= 1 ? 'disabled' : ''}>-</button>
                         <span style="margin: 0 10px;">数量: ${entry.quantity}</span>
+                        <button type="button" onclick="updateQuantity(${index}, ${entry.quantity + 1})">+</button>
                     </div>
                     <p><strong>小計: ￥${entry.totalPrice}</strong></p>
                 `;
